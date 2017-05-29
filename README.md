@@ -15,3 +15,8 @@ de générer des projets pour d'autres IDE ou même de créer directement
 un makefile.
 
 Lors de la compilation du projet SFML est également compilé
+
+### Changements
+
+Attention ! Le projet est maintenant passé sous visual studio avec la chaine de compilation de visual studio
+(VC++). Le dépôt sera modifié pour laisser place au projet visual studio 2015.
