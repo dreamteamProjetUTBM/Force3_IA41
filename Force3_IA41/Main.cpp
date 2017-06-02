@@ -18,17 +18,40 @@ int main(int argc, char* argv[])
 
 	PlEngine engine(argv[0]);
 
-	// Mettre les fichier prolog au même niveau que l'exécutable...
-	PlCall("consult('test')");
+	/* Ouverture d'un contexte prolog */
+	fid_t fid= PL_open_foreign_frame();
 
-	PlTermv term(1);
-	term[0] = 4;
-	PlQuery query("factoriel", term);
+	predicate_t pred = PL_predicate("consult", 1, "user");
+	term_t t1 = PL_new_term_ref();
+	PL_put_string_chars(t1, "test.pl");
 
-	while (int r = query.next_solution() > 0)
+	int r = PL_call_predicate(NULL, PL_Q_NODEBUG, pred, t1);
+	if (r)
 	{
-		std::cout << (bool)r << std::endl;
+		std::cout << "Ok ! " << std::endl;
+		
 	}
+	else
+	{
+		std::cout << "Fail !" << r << std::endl;
+	}
+
+	predicate_t pred1 = PL_predicate("factoriel", 1, "user");
+	term_t t2 = PL_new_term_ref();
+	PL_put_integer(t2, 5);
+
+	int r2 = PL_call_predicate(NULL, PL_Q_NODEBUG, pred1, t2);
+	if (r2)
+	{
+		std::cout << "Ok ! " << std::endl;
+	}
+	else
+	{
+		std::cout << "Fail !" << r << std::endl;
+	}
+
+	/* Fermeture du contexte prolog */
+	PL_close_foreign_frame(fid);
 
 	while (window.isOpen())
 	{
