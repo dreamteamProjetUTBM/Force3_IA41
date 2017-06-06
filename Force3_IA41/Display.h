@@ -2,6 +2,8 @@
 
 #include <SFML\Graphics.hpp>
 
+class Scene;
+
 /*
 	Classe Display
 
@@ -22,5 +24,7 @@ public:
 
 	void setClearColor(sf::Color _c);
 	void setClearColor(int _r, int _g, int _b);
+
+	void addScene(Scene* _scen);
 };
 

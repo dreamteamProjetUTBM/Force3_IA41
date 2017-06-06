@@ -15,6 +15,7 @@ class GameObject
 {
 private:
 	std::vector<Component*> components;
+	sf::String name;
 
 public:
 	GameObject();
@@ -28,5 +29,7 @@ public:
 	bool addComponent(Component* _comp);
 	bool removeComponent(sf::String _n);
 	Component* getComponent(sf::String _n);
+
+	sf::String getName();
 };
 

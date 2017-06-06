@@ -1,6 +1,5 @@
 #include "Display.h"
-
-
+#include "Scene.h"
 
 Display::Display(int _w, int _h, sf::String _t) : window(), clearColor()
 {
@@ -40,4 +39,8 @@ void Display::setClearColor(int _r, int _g, int _b)
 	clearColor.r = _r;
 	clearColor.g = _g;
 	clearColor.b = _b;
+}
+
+void Display::addScene(Scene * _scen)
+{
 }

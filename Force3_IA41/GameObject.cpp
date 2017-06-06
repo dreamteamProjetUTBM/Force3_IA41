@@ -76,3 +76,8 @@ Component * GameObject::getComponent(sf::String _n)
 
 	return nullptr;
 }
+
+sf::String GameObject::getName()
+{
+	return name;
+}
