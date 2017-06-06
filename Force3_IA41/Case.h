@@ -1,4 +1,5 @@
 #pragma once
+#include "Pawn.h"
 
 /*
 	Classe Case
@@ -7,8 +8,15 @@
 */
 class Case
 {
+private:
+	Pawn _pawn;
+
+
 public:
 	Case();
 	~Case();
+
+	Pawn Case::GetPawn();
+	void Case::SetPawn(Pawn value);
 };
 
