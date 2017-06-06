@@ -50,6 +50,17 @@ bool GameObject::addComponent(Component * _comp)
 
 bool GameObject::removeComponent(sf::String _n)
 {
+	std::vector<Component*>::iterator it;
+	int i = 0;
+	for (it = components.begin(); it < components.end(); it++, i++)
+	{
+		if (components[i]->getName() == _n)
+		{
+			components.erase(it);
+			return true;
+		}
+	}
+
 	return false;
 }
 
