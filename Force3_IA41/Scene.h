@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Display.h"
+
 /*
 	Classe Scene
 
@@ -8,8 +10,14 @@
 */
 class Scene
 {
+private:
+
 public:
 	Scene();
-	~Scene();
+	virtual ~Scene();
+
+	virtual void init(Display* _disp) = 0;
+	virtual void update(Display* _disp) = 0;
+	virtual void draw(Display* _disp) = 0;
 };
 
