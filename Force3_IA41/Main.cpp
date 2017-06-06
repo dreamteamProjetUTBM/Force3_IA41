@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
 	/* Permet de mettre en place l'environnement !!! Obligatoire sinon ça ne
 	 fonctionne pas du tout !!!*/
 	//ATTENTION : Thomas j'ai changé le "pl" en "swipl"
-	_putenv("SWI_HOME_DIR=C:\\Program Files (x86)\\swipl\\");
+	_putenv("SWI_HOME_DIR=C:\\Program Files (x86)\\pl\\");
 
 	PlEngine engine(argv[0]);
 
@@ -84,7 +84,7 @@ int main(int argc, char* argv[])
 
 	/*Aspect case*/
 	sf::Texture texture;
-	if (!texture.loadFromFile("..\\Ressources\\case.jpg"))
+	if (!texture.loadFromFile("ressources/case.jpg"))
 	{
 		// error...
 	}
