@@ -23,5 +23,9 @@ public:
 	virtual void init(Display* _disp);
 	virtual void update(Display* _disp);
 	virtual void draw(Display* _disp);
+
+	/* Méthodes utilitaires */
+	bool addComponent(Component* _comp);
+	bool removeComponent(sf::String _n);
 };
 

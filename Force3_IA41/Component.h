@@ -9,6 +9,9 @@
 */
 class Component
 {
+private:
+	sf::String name;
+
 public:
 	Component();
 	~Component();

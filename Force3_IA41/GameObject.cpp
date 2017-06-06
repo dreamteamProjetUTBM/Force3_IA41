@@ -34,3 +34,13 @@ void GameObject::draw(Display * _disp)
 		component->draw(_disp);
 	}
 }
+
+bool GameObject::addComponent(Component * _comp)
+{
+	return false;
+}
+
+bool GameObject::removeComponent(sf::String _n)
+{
+	return false;
+}
