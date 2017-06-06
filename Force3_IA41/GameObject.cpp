@@ -44,3 +44,8 @@ bool GameObject::removeComponent(sf::String _n)
 {
 	return false;
 }
+
+Component * GameObject::getComponent(sf::String _n)
+{
+	return nullptr;
+}

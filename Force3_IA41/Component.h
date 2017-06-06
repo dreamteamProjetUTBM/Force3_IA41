@@ -19,5 +19,7 @@ public:
 	virtual void init(Display* _disp) = 0;
 	virtual void update(Display* _disp) = 0;
 	virtual void draw(Display* _disp) = 0;
+
+	sf::String getName();
 };
 

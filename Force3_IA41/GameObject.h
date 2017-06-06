@@ -27,5 +27,6 @@ public:
 	/* Méthodes utilitaires */
 	bool addComponent(Component* _comp);
 	bool removeComponent(sf::String _n);
+	Component* getComponent(sf::String _n);
 };
 
