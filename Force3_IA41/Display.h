@@ -1,5 +1,6 @@
 #pragma once
 
+#include <vector>
 #include <SFML\Graphics.hpp>
 
 class Scene;
@@ -16,6 +17,8 @@ private:
 	sf::RenderWindow window;
 	sf::Color clearColor;
 
+	std::vector<Scene*> scenes;
+
 public:
 	Display(int _w, int _h, sf::String _t);
 	~Display();
@@ -25,6 +28,7 @@ public:
 	void setClearColor(sf::Color _c);
 	void setClearColor(int _r, int _g, int _b);
 
-	void addScene(Scene* _scen);
+	bool addScene(Scene* _scen);
+	bool switchScene(sf::String _name);
 };
 

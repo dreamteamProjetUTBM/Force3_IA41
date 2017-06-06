@@ -41,6 +41,21 @@ void Display::setClearColor(int _r, int _g, int _b)
 	clearColor.b = _b;
 }
 
-void Display::addScene(Scene * _scen)
+bool Display::addScene(Scene * _scen)
+{
+	sf::String n = _scen->getName();
+	for (auto scene : scenes)
+	{
+		if (scene->getName() == n)
+		{
+			return false;
+		}
+	}
+
+	scenes.push_back(_scen);
+	return true;
+}
+
+bool Display::switchScene(sf::String _name)
 {
 }
