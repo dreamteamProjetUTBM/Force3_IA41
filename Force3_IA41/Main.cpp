@@ -2,9 +2,9 @@
 	Projet Force3 IA41
 */
 #include <iostream>
-
-#include <SFML\Graphics.hpp>
 #include <SWI-cpp.h>
+
+#include "Display.h"
 
 int main(int argc, char* argv[]) 
 {
@@ -49,4 +49,7 @@ int main(int argc, char* argv[])
 
 	/* Fermeture du contexte prolog */
 	PL_close_foreign_frame(fid);
+
+	Display* disp = new Display(854, 480, "Force 3");
+	disp->start(true);
 }
