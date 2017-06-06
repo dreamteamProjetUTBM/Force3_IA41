@@ -37,7 +37,15 @@ void GameObject::draw(Display * _disp)
 
 bool GameObject::addComponent(Component * _comp)
 {
-	return false;
+	sf::String n = _comp->getName();
+	for (auto component : components)
+	{
+		if (component->getName() == n)
+			return false;
+	}
+
+	components.push_back(_comp);
+	return true;
 }
 
 bool GameObject::removeComponent(sf::String _n)
