@@ -2,7 +2,7 @@
 
 
 
-Component::Component()
+Component::Component(sf::String _name) : name(_name)
 {
 }
 

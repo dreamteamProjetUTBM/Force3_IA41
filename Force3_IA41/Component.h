@@ -13,7 +13,7 @@ private:
 	sf::String name;
 
 public:
-	Component();
+	Component(sf::String _name);
 	~Component();
 
 	virtual void init(Display* _disp) = 0;
