@@ -16,13 +16,16 @@ class Scene
 {
 private:
 	std::vector<GameObject*> gameObjects;
+	sf::String name;
 
 public:
-	Scene();
+	Scene(sf::String _name);
 	virtual ~Scene();
 
 	virtual void init(Display* _disp);
 	virtual void update(Display* _disp);
 	virtual void draw(Display* _disp);
+
+	sf::String getName();
 };
 

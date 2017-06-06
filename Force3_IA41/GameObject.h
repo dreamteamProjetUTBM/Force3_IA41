@@ -18,7 +18,7 @@ private:
 	sf::String name;
 
 public:
-	GameObject();
+	GameObject(sf::String _name);
 	~GameObject();
 
 	virtual void init(Display* _disp);

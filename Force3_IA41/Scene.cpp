@@ -1,7 +1,7 @@
 #include "Scene.h"
 #include "GameObject.h"
 
-Scene::Scene()
+Scene::Scene(sf::String _name) : name(_name)
 {
 }
 
@@ -31,4 +31,9 @@ void Scene::draw(Display * _disp)
 	{
 		gameObject->draw(_disp);
 	}
+}
+
+sf::String Scene::getName()
+{
+	return name;
 }

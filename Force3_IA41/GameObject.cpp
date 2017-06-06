@@ -2,7 +2,7 @@
 #include "Component.h"
 
 
-GameObject::GameObject()
+GameObject::GameObject(sf::String _name) : name(_name)
 {
 }
 
