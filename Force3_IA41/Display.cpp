@@ -1,7 +1,7 @@
 #include "Display.h"
 #include "Scene.h"
 
-Display::Display(int _w, int _h, sf::String _t) : window(), clearColor()
+Display::Display(int _w, int _h, sf::String _t) : window(), clearColor(), activeScene(nullptr)
 {
 	window.create(sf::VideoMode(_w, _h), _t);
 	window.setVisible(true);
@@ -58,4 +58,15 @@ bool Display::addScene(Scene * _scen)
 
 bool Display::switchScene(sf::String _name)
 {
+	for (auto scene : scenes)
+	{
+		if (scene->getName() == _name)
+		{
+			activeScene = scene;
+			activeScene->init(this);
+			return true;
+		}
+	}
+
+	return false;
 }

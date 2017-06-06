@@ -18,6 +18,7 @@ private:
 	sf::Color clearColor;
 
 	std::vector<Scene*> scenes;
+	Scene* activeScene;
 
 public:
 	Display(int _w, int _h, sf::String _t);
