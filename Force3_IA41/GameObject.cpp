@@ -66,5 +66,13 @@ bool GameObject::removeComponent(sf::String _n)
 
 Component * GameObject::getComponent(sf::String _n)
 {
+	for (auto component : components)
+	{
+		if (component->getName() == _n)
+		{
+			return component;
+		}
+	}
+
 	return nullptr;
 }
