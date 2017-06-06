@@ -8,16 +8,6 @@
 
 int main(int argc, char* argv[]) 
 {
-
-	sf::ContextSettings settings;
-	settings.antialiasingLevel = 8;
-
-	sf::RenderWindow window(sf::VideoMode(854, 480), "Force 3", sf::Style::Default, settings);
-	//sf::RenderWindow window;
-	//window.create(sf::VideoMode(854, 480), "Force 3");
-	window.setVerticalSyncEnabled(true);
-	
-
 	/* Permet de mettre en place l'environnement !!! Obligatoire sinon ça ne
 	 fonctionne pas du tout !!!*/
 	//ATTENTION : Thomas j'ai changé le "pl" en "swipl"
@@ -59,56 +49,4 @@ int main(int argc, char* argv[])
 
 	/* Fermeture du contexte prolog */
 	PL_close_foreign_frame(fid);
-
-	/*Graphical components*/
-
-	//Il faut définir une Font avant de pouvoir afficher
-	//sf::Text title;
-	//title.setString("Force 3");
-	//title.setCharacterSize(24);
-	//title.setFillColor(sf::Color::Red);
-
-	/*Aspect pion 1*/
-	sf::CircleShape pawn_j1(50);
-	pawn_j1.setFillColor(sf::Color(185, 35, 35));
-	pawn_j1.setOutlineThickness(5);
-	pawn_j1.setOutlineColor(sf::Color(146, 25, 25));
-	pawn_j1.setPosition(50, 50);
-
-	/*Aspect pion 2*/
-	sf::CircleShape pawn_j2(50);
-	pawn_j2.setFillColor(sf::Color(111, 138, 226));
-	pawn_j2.setOutlineThickness(5);
-	pawn_j2.setOutlineColor(sf::Color(78, 99, 171));
-	pawn_j2.setPosition(200, 50);
-
-	/*Aspect case*/
-	sf::Texture texture;
-	if (!texture.loadFromFile("ressources/case.jpg"))
-	{
-		// error...
-	}
-	sf::RectangleShape case_aspect(sf::Vector2f(150, 150));
-	case_aspect.setTexture(&texture); // texture is a sf::Texture
-	case_aspect.setTextureRect(sf::IntRect(10, 10, 150, 150));
-	case_aspect.setPosition(50, 200);
-
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-			{
-				window.close();
-			}
-		}
-
-		window.clear();
-		//window.draw(title);
-		window.draw(pawn_j1);
-		window.draw(pawn_j2);
-		window.draw(case_aspect);
-		window.display();
-	}
 }
