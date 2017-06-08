@@ -1,9 +1,25 @@
-﻿  Display.cpp
+﻿  ArtificialIntelligence.cpp
+  Board.cpp
+  Case.cpp
+  Component.cpp
+c:\users\thomas gredin\documents\programmation\cpp\force3_ia41\GameObject.h(5): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+  Display.cpp
+  Game.cpp
+  GameObject.cpp
+c:\users\thomas gredin\documents\programmation\cpp\force3_ia41\GameObject.h(5): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+  GameScene.cpp
   Main.cpp
+  MenuScene.cpp
+  Pawn.cpp
+  PrologHelper.cpp
+  PrologScriptComponent.cpp
+  Scene.cpp
+c:\users\thomas gredin\documents\programmation\cpp\force3_ia41\GameObject.h(5): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+  SpriteComponent.cpp
   Génération de code en cours
-  4 of 19 functions (21.1%) were compiled, the rest were copied from previous compilation.
-    2 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+  94 of 95 functions (98.9%) were compiled, the rest were copied from previous compilation.
+    76 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
-  Force3_IA41.vcxproj -> C:\Users\tgred\Documents\Programmation\C++\Force3_IA41\Release\Force3_IA41.exe
-  Force3_IA41.vcxproj -> C:\Users\tgred\Documents\Programmation\C++\Force3_IA41\Release\Force3_IA41.pdb (Full PDB)
+  Force3_IA41.vcxproj -> C:\Users\Thomas Gredin\Documents\Programmation\Cpp\Release\Force3_IA41.exe
+  Force3_IA41.vcxproj -> C:\Users\Thomas Gredin\Documents\Programmation\Cpp\Release\Force3_IA41.pdb (Full PDB)

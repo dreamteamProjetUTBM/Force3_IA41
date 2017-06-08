@@ -26,7 +26,6 @@ int main(int argc, char* argv[])
 	if (r)
 	{
 		std::cout << "Ok ! " << std::endl;
-		
 	}
 	else
 	{
