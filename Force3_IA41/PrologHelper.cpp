@@ -27,7 +27,15 @@ bool PrologHelper::consultFile(sf::String _file)
 
 bool PrologHelper::loadPredicat(sf::String _pred, int _nbparam)
 {
-	return false;
+	const char* name = _pred.toAnsiString().c_str();
+	predicate_t pred = PL_predicate(name, _nbparam, "user");
+
+	if (pred == NULL)
+		return false;
+
+	predicats.insert(std::pair<sf::String, predicate_t>(name, pred));
+
+	return true;
 }
 
 bool PrologHelper::callPredicat(sf::String _pred, term_t _term)
