@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
 	/* Permet de mettre en place l'environnement !!! Obligatoire sinon ça ne
 	 fonctionne pas du tout !!!*/
 	//ATTENTION : Thomas j'ai changé le "pl" en "swipl"
-	_putenv("SWI_HOME_DIR=C:\\Program Files (x86)\\pl\\");
+	_putenv("SWI_HOME_DIR=C:\\Program Files (x86)\\swipl\\");
 
 	PlEngine engine(argv[0]);
 
