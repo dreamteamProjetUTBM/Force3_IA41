@@ -51,3 +51,8 @@ void SpriteComponent::move(float _xOffset, float _yOffset)
 {
 	sprite.move(_xOffset, _yOffset);
 }
+
+sf::Vector2f SpriteComponent::getPosition()
+{
+	return sprite.getPosition();
+}

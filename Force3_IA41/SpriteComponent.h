@@ -25,7 +25,10 @@ public:
 	void setPosition(sf::Vector2f _pos);
 	void setPosition(float _x, float _y);
 
+	/* Bouger la position du Sprite par l'Offset spécifié */
 	void move(sf::Vector2f _posOffset);
 	void move(float _xOffset, float _yOffset);
+
+	sf::Vector2f getPosition();
 };
 
