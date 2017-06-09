@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Scene.h"
-#include "GameObject.h"
+#include "Button.h"
 
 /* CONSTANTES */
 #define SCENE_MENU "menuScene"
@@ -14,6 +14,7 @@
 class MenuScene : public Scene
 {
 private:
+	Button* button;
 
 public:
 	MenuScene();

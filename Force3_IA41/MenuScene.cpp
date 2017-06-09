@@ -15,6 +15,7 @@ MenuScene::~MenuScene()
 
 void MenuScene::init(Display * _disp)
 {
+	button = new Button("Jouer !");
 }
 
 void MenuScene::update(Display * _disp)

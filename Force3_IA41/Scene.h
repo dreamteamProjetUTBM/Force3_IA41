@@ -27,5 +27,9 @@ public:
 	virtual void draw(Display* _disp);
 
 	sf::String getName();
+
+	bool addGameObject(GameObject* _go);
+	bool removeGameObject(sf::String _name);
+	GameObject* getGameObject(sf::String _name);
 };
 

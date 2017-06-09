@@ -37,3 +37,48 @@ sf::String Scene::getName()
 {
 	return name;
 }
+
+bool Scene::addGameObject(GameObject * _go)
+{
+	sf::String name = _go->getName();
+	for (auto gameObject : gameObjects)
+	{
+		if (gameObject->getName() == name)
+		{
+			return false;
+		}
+	}
+
+	gameObjects.push_back(_go);
+
+	return true;
+}
+
+bool Scene::removeGameObject(sf::String _name)
+{
+	std::vector<GameObject*>::iterator it;
+	int i = 0;
+	for (it = gameObjects.begin(); it < gameObjects.end(); it++, i++)
+	{
+		if (gameObjects[i]->getName() == _name)
+		{
+			gameObjects.erase(it);
+			return true;
+		}
+	}
+
+	return false;
+}
+
+GameObject * Scene::getGameObject(sf::String _name)
+{
+	for (auto gameObject : gameObjects)
+	{
+		if (gameObject->getName() == name)
+		{
+			return gameObject;
+		}
+	}
+
+	return nullptr;
+}
