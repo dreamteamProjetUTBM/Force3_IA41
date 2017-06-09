@@ -4,6 +4,9 @@
 #include <SWI-cpp.h>
 #include <SFML\System\String.hpp>
 
+/* CONSTANTES */
+#define PRED_CONSULT "consult"
+
 /*
 	Classe PrologHelper
 
@@ -23,5 +26,7 @@ private:
 public:
 	PrologHelper(char* arg0);
 	~PrologHelper();
+
+	bool consultFile(sf::String _file);
 };
 
