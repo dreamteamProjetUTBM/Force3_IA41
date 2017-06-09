@@ -14,7 +14,7 @@ protected:
 
 public:
 	Component(sf::String _name);
-	~Component();
+	virtual ~Component();
 
 	virtual void init(Display* _disp) = 0;
 	virtual void update(Display* _disp, sf::Event& _event) = 0;
