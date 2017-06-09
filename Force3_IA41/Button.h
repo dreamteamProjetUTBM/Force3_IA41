@@ -8,7 +8,7 @@
 
 	Gestion de bouton avec actions par le biais d'expression.
 */
-class Button : GameObject
+class Button : public GameObject
 {
 private:
 	SpriteComponent* spriteComp;
@@ -16,5 +16,9 @@ private:
 public:
 	Button(sf::String _text);
 	~Button();
+
+	void init(Display* _disp) override;
+	void update(Display* _disp) override;
+	void draw(Display* _disp) override;
 };
 

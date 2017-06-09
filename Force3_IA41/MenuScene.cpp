@@ -16,12 +16,15 @@ MenuScene::~MenuScene()
 void MenuScene::init(Display * _disp)
 {
 	button = new Button("Jouer !");
+	addGameObject(button);
 }
 
 void MenuScene::update(Display * _disp)
 {
+	Scene::update(_disp);
 }
 
 void MenuScene::draw(Display * _disp)
 {
+	Scene::draw(_disp);
 }
