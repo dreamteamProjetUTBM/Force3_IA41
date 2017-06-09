@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameObject.h"
+#include "SpriteComponent.h"
 
 /*
 	Classe Button.
@@ -10,6 +11,7 @@
 class Button : GameObject
 {
 private:
+	SpriteComponent* spriteComp;
 
 public:
 	Button(sf::String _text);

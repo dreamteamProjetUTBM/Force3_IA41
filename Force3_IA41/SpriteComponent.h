@@ -7,7 +7,7 @@
 
 	Composant d'affichage pour les GameObjects
 */
-class SpriteComponent : Component
+class SpriteComponent : public Component
 {
 private:
 	sf::Texture texture;
@@ -29,6 +29,7 @@ public:
 	void move(sf::Vector2f _posOffset);
 	void move(float _xOffset, float _yOffset);
 
+	/* Récupérer la position du Sprite */
 	sf::Vector2f getPosition();
 };
 

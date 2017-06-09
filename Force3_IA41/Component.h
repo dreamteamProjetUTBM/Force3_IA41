@@ -9,7 +9,7 @@
 */
 class Component
 {
-private:
+protected:
 	sf::String name;
 
 public:

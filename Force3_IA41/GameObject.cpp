@@ -9,6 +9,11 @@ GameObject::GameObject(sf::String _name) : name(_name)
 
 GameObject::~GameObject()
 {
+	for (auto component : components)
+	{
+		delete component;
+	}
+	components.clear();
 }
 
 void GameObject::init(Display * _disp)
