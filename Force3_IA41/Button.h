@@ -1,7 +1,7 @@
 #pragma once
 
 #include "GameObject.h"
-#include "SpriteComponent.h"
+#include "ClickableComponent.h"
 
 /*
 	Classe Button.
@@ -11,10 +11,15 @@
 class Button : public GameObject
 {
 private:
+	/* CONSTANTES */
+	const sf::String COMP_SPRITE_INACTIVE = "spriteInact";
+	const sf::String COMP_CLICK = "clickComp";
+
 	SpriteComponent* spriteComp;
+	ClickableComponent* clickComp;
 
 public:
-	Button(sf::String _text);
+	Button(sf::String _text, std::function<void(SpriteComponent*)> _click, std::function<void(SpriteComponent*)> _release);
 	~Button();
 
 	void init(Display* _disp) override;

@@ -62,7 +62,7 @@ sf::Vector2u SpriteComponent::getSize() const
 	return texture.getSize();
 }
 
-sf::IntRect SpriteComponent::getRect() const
+sf::FloatRect SpriteComponent::getRect() const
 {
-	return sprite.getTextureRect();
+	return sprite.getGlobalBounds();
 }

@@ -36,6 +36,6 @@ public:
 	sf::Vector2u getSize() const;
 
 	/* Récupérer le rect du Sprite */
-	sf::IntRect getRect() const;
+	sf::FloatRect getRect() const;
 };
 

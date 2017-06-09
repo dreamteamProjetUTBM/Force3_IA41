@@ -16,7 +16,8 @@ void ClickableComponent::init(Display* _disp)
 
 void ClickableComponent::update(Display* _disp, sf::Event& _event)
 {
-	if(sc->getRect().contains(_event.mouseMove.x, _event.mouseMove.y))
+	bool inside = sc->getRect().contains(_event.mouseMove.x, _event.mouseMove.y);
+	if(inside)
 	{
 		if(_event.type == sf::Event::MouseButtonPressed)
 		{
@@ -35,9 +36,13 @@ void ClickableComponent::update(Display* _disp, sf::Event& _event)
 			}
 		}
 	}
-	else
+	else if(!inside)
 	{
-		isClick = false;
+		if(isClick)
+		{
+			released(sc);
+			isClick = false;
+		}
 	}
 }
 

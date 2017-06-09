@@ -1,4 +1,5 @@
 #include "MenuScene.h"
+#include <iostream>
 
 MenuScene::MenuScene() : Scene(SCENE_MENU)
 {
@@ -15,7 +16,9 @@ MenuScene::~MenuScene()
 
 void MenuScene::init(Display * _disp)
 {
-	button = new Button("Jouer !");
+	button = new Button("Jouer !", 
+		[](SpriteComponent* sc) { std::cout << "pressed" << std::endl; }, 
+		[](SpriteComponent* sc) { std::cout << "released" << std::endl; });
 	addGameObject(button);
 }
 
