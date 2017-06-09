@@ -41,3 +41,11 @@ void SpriteComponent::setPosition(float _x, float _y)
 {
 	sprite.setPosition(_x, _y);
 }
+
+void SpriteComponent::move(sf::Vector2f _pos)
+{
+}
+
+void SpriteComponent::move(float _x, float _y)
+{
+}
