@@ -20,5 +20,9 @@ public:
 	void init(Display* _disp) override;
 	void update(Display* _disp) override;
 	void draw(Display* _disp) override;
+
+	/* Changer la position du Sprite */
+	void setPosition(sf::Vector2f _pos);
+	void setPosition(float _x, float _y);
 };
 

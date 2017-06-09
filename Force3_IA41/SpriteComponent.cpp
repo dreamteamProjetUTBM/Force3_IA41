@@ -29,4 +29,13 @@ void SpriteComponent::update(Display * _disp)
 
 void SpriteComponent::draw(Display * _disp)
 {
+	_disp->draw(&sprite);
+}
+
+void SpriteComponent::setPosition(sf::Vector2f _pos)
+{
+}
+
+void SpriteComponent::setPosition(float _x, float _y)
+{
 }
