@@ -31,5 +31,11 @@ public:
 
 	/* Récupérer la position du Sprite */
 	sf::Vector2f getPosition() const;
+
+	/* Récupérer la taille du Sprite */
+	sf::Vector2u getSize() const;
+
+	/* Récupérer le rect du Sprite */
+	sf::IntRect getRect() const;
 };
 

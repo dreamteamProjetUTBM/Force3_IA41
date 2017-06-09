@@ -1,5 +1,10 @@
 ﻿#include "ClickableComponent.h"
 
+bool ClickableComponent::contains()
+{
+	if()
+}
+
 ClickableComponent::ClickableComponent(sf::String _name, SpriteComponent* _sprite) : Component(_name)
 {
 	sc = _sprite;
@@ -15,6 +20,7 @@ void ClickableComponent::init(Display* _disp)
 
 void ClickableComponent::update(Display* _disp, sf::Event& _event)
 {
+	
 }
 
 void ClickableComponent::draw(Display* _disp)

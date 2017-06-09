@@ -16,6 +16,8 @@ private:
 	SpriteComponent* sc;
 	std::function<void(SpriteComponent*)> clicked;
 
+	bool contains();
+
 public:
 	ClickableComponent(sf::String _name, SpriteComponent* _sprite);
 	~ClickableComponent();

@@ -56,3 +56,13 @@ sf::Vector2f SpriteComponent::getPosition() const
 {
 	return sprite.getPosition();
 }
+
+sf::Vector2u SpriteComponent::getSize() const
+{
+	return texture.getSize();
+}
+
+sf::IntRect SpriteComponent::getRect() const
+{
+	return sprite.getTextureRect();
+}
