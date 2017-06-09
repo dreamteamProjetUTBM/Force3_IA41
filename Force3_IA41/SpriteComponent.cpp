@@ -34,8 +34,10 @@ void SpriteComponent::draw(Display * _disp)
 
 void SpriteComponent::setPosition(sf::Vector2f _pos)
 {
+	sprite.setPosition(_pos);
 }
 
 void SpriteComponent::setPosition(float _x, float _y)
 {
+	sprite.setPosition(_x, _y);
 }
