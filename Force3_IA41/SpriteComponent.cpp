@@ -42,10 +42,12 @@ void SpriteComponent::setPosition(float _x, float _y)
 	sprite.setPosition(_x, _y);
 }
 
-void SpriteComponent::move(sf::Vector2f _pos)
+void SpriteComponent::move(sf::Vector2f _posOffset)
 {
+	sprite.move(_posOffset);
 }
 
-void SpriteComponent::move(float _x, float _y)
+void SpriteComponent::move(float _xOffset, float _yOffset)
 {
+	sprite.move(_xOffset, _yOffset);
 }

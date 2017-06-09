@@ -25,7 +25,7 @@ public:
 	void setPosition(sf::Vector2f _pos);
 	void setPosition(float _x, float _y);
 
-	void move(sf::Vector2f _pos);
-	void move(float _x, float _y);
+	void move(sf::Vector2f _posOffset);
+	void move(float _xOffset, float _yOffset);
 };
 
