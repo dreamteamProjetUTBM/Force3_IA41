@@ -9,6 +9,11 @@ Display::Display(int _w, int _h, sf::String _t) : window(), clearColor(), active
 
 Display::~Display()
 {
+	for (auto scene : scenes)
+	{
+		delete scene;
+	}
+	scenes.clear();
 }
 
 void Display::start(bool _vsync)
