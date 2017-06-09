@@ -123,6 +123,7 @@
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Case.cpp" />
+    <ClCompile Include="ClickableComponent.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Display.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="Board.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Case.h" />
+    <ClInclude Include="ClickableComponent.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Display.h" />
     <ClInclude Include="Game.h" />
