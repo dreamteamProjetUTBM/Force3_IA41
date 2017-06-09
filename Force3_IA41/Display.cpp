@@ -28,8 +28,12 @@ void Display::start(bool _vsync)
 			if (ev.type == sf::Event::Closed)
 				window.close();
 		}
+		if (activeScene != nullptr)
+			activeScene->update(this);
 
 		window.clear(clearColor);
+		if (activeScene != nullptr)
+			activeScene->draw(this);
 		window.display();
 	}
 }

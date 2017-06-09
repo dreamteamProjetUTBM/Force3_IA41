@@ -2,9 +2,6 @@
 
 MenuScene::MenuScene() : Scene(SCENE_MENU)
 {
-	shape.setPosition(100, 100);
-	shape.setSize(sf::Vector2f(100, 50));
-	shape.setFillColor(sf::Color::White);
 }
 
 MenuScene::~MenuScene()

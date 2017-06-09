@@ -14,7 +14,6 @@
 class MenuScene : public Scene
 {
 private:
-	sf::RectangleShape shape;
 
 public:
 	MenuScene();
