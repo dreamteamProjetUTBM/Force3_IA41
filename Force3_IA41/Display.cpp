@@ -75,3 +75,8 @@ bool Display::switchScene(sf::String _name)
 
 	return false;
 }
+
+void Display::draw(sf::Drawable * _shap)
+{
+	window.draw(*_shap);
+}

@@ -31,5 +31,7 @@ public:
 
 	bool addScene(Scene* _scen);
 	bool switchScene(sf::String _name);
+
+	void draw(sf::Drawable* _shap);
 };
 

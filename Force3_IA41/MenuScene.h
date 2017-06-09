@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Scene.h"
+#include "GameObject.h"
 
 /* CONSTANTES */
 #define SCENE_MENU "menuScene"
@@ -13,6 +14,7 @@
 class MenuScene : public Scene
 {
 private:
+	sf::RectangleShape shape;
 
 public:
 	MenuScene();

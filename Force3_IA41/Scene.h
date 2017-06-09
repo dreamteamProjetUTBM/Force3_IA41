@@ -14,7 +14,7 @@ class GameObject;
 */
 class Scene
 {
-private:
+protected:
 	std::vector<GameObject*> gameObjects;
 	sf::String name;
 
