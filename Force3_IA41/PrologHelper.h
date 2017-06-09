@@ -27,6 +27,11 @@ public:
 	PrologHelper(char* arg0);
 	~PrologHelper();
 
+	/* Permet de consulter un fichier pl */
 	bool consultFile(sf::String _file);
+	/* Permet de charger un prédicat */
+	bool loadPredicat(sf::String _pred, int _nbparam);
+	/* Permet d'appeler un predicat dans le cas ou il à été chargé auparavant */
+	bool callPredicat(sf::String _pred, term_t _term);
 };
 
