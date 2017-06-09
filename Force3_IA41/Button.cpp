@@ -2,7 +2,7 @@
 
 Button::Button(sf::String _text) : GameObject(_text)
 {
-	spriteComp = new SpriteComponent("inactiveSprite", "resources/btn_inactive.png");
+	spriteComp = new SpriteComponent("inactiveSprite", "ressources/case.jpg");
 	addComponent(spriteComp);
 }
 
