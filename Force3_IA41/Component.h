@@ -17,7 +17,7 @@ public:
 	~Component();
 
 	virtual void init(Display* _disp) = 0;
-	virtual void update(Display* _disp) = 0;
+	virtual void update(Display* _disp, sf::Event& _event) = 0;
 	virtual void draw(Display* _disp) = 0;
 
 	sf::String getName();

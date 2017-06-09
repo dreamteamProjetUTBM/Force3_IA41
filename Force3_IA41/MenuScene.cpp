@@ -19,9 +19,9 @@ void MenuScene::init(Display * _disp)
 	addGameObject(button);
 }
 
-void MenuScene::update(Display * _disp)
+void MenuScene::update(Display * _disp, sf::Event& _event)
 {
-	Scene::update(_disp);
+	Scene::update(_disp, _event);
 }
 
 void MenuScene::draw(Display * _disp)

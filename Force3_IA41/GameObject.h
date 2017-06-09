@@ -1,8 +1,7 @@
 #pragma once
 
 #include <vector>
-
-#include "Display.h";
+#include "Display.h"
 
 class Component;
 
@@ -19,10 +18,10 @@ private:
 
 public:
 	GameObject(sf::String _name);
-	~GameObject();
+	virtual ~GameObject();
 
 	virtual void init(Display* _disp);
-	virtual void update(Display* _disp);
+	virtual void update(Display* _disp, sf::Event& _event);
 	virtual void draw(Display* _disp);
 
 	/* Méthodes utilitaires */

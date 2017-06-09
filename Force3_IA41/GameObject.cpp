@@ -24,11 +24,11 @@ void GameObject::init(Display * _disp)
 	}
 }
 
-void GameObject::update(Display * _disp)
+void GameObject::update(Display * _disp, sf::Event& _event)
 {
 	for(auto component : components)
 	{
-		component->update(_disp);
+		component->update(_disp, _event);
 	}
 }
 

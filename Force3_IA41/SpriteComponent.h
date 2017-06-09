@@ -18,7 +18,7 @@ public:
 	~SpriteComponent();
 
 	void init(Display* _disp) override;
-	void update(Display* _disp) override;
+	void update(Display* _disp, sf::Event& _event) override;
 	void draw(Display* _disp) override;
 
 	/* Changer la position du Sprite */
@@ -30,6 +30,6 @@ public:
 	void move(float _xOffset, float _yOffset);
 
 	/* Récupérer la position du Sprite */
-	sf::Vector2f getPosition();
+	sf::Vector2f getPosition() const;
 };
 

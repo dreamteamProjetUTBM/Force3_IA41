@@ -21,7 +21,7 @@ public:
 	~MenuScene();
 
 	void init(Display* _disp) override;
-	void update(Display* _disp) override;
+	void update(Display* _disp, sf::Event& _event) override;
 	void draw(Display* _disp) override;
 };
 

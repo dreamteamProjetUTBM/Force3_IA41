@@ -23,7 +23,7 @@ void SpriteComponent::init(Display * _disp)
 {
 }
 
-void SpriteComponent::update(Display * _disp)
+void SpriteComponent::update(Display * _disp, sf::Event& _event)
 {
 }
 
@@ -52,7 +52,7 @@ void SpriteComponent::move(float _xOffset, float _yOffset)
 	sprite.move(_xOffset, _yOffset);
 }
 
-sf::Vector2f SpriteComponent::getPosition()
+sf::Vector2f SpriteComponent::getPosition() const
 {
 	return sprite.getPosition();
 }

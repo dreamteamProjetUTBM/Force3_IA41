@@ -29,7 +29,7 @@ void Display::start(bool _vsync)
 				window.close();
 		}
 		if (activeScene != nullptr)
-			activeScene->update(this);
+			activeScene->update(this, ev);
 
 		window.clear(clearColor);
 		if (activeScene != nullptr)

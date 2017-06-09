@@ -17,11 +17,11 @@ void Scene::init(Display * _disp)
 	}
 }
 
-void Scene::update(Display * _disp)
+void Scene::update(Display * _disp, sf::Event& _event)
 {
 	for (auto gameObject : gameObjects)
 	{
-		gameObject->update(_disp);
+		gameObject->update(_disp, _event);
 	}
 }
 

@@ -23,7 +23,7 @@ public:
 	virtual ~Scene();
 
 	virtual void init(Display* _disp);
-	virtual void update(Display* _disp);
+	virtual void update(Display* _disp, sf::Event& _event);
 	virtual void draw(Display* _disp);
 
 	sf::String getName();

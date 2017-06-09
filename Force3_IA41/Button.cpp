@@ -15,9 +15,9 @@ void Button::init(Display * _disp)
 	GameObject::init(_disp);
 }
 
-void Button::update(Display * _disp)
+void Button::update(Display * _disp, sf::Event& _event)
 {
-	GameObject::update(_disp);
+	GameObject::update(_disp, _event);
 }
 
 void Button::draw(Display * _disp)
