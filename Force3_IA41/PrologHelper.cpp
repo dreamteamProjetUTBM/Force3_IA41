@@ -40,5 +40,6 @@ bool PrologHelper::loadPredicat(sf::String _pred, int _nbparam)
 
 bool PrologHelper::callPredicat(sf::String _pred, term_t _term)
 {
-	return false;
+	int result = PL_call_predicate(NULL, PL_Q_NODEBUG, predicats[_pred], _term);
+	return result;
 }
