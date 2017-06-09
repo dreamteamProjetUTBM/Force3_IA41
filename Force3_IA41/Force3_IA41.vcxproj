@@ -121,6 +121,7 @@
   <ItemGroup>
     <ClCompile Include="ArtificialIntelligence.cpp" />
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Case.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Display.cpp" />
@@ -141,6 +142,7 @@
   <ItemGroup>
     <ClInclude Include="ArtificialIntelligence.h" />
     <ClInclude Include="Board.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Case.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Display.h" />

@@ -1,14 +1,16 @@
 #pragma once
 
+#include "Component.h"
+
 /*
 	Classe SpriteComponent
 
 	Composant d'affichage pour les GameObjects
 */
-class SpriteComponent
+class SpriteComponent : Component
 {
 public:
-	SpriteComponent();
+	SpriteComponent(sf::String _name, sf::String _img);
 	~SpriteComponent();
 };
 
