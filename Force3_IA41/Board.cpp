@@ -8,12 +8,22 @@ Board::Board()
 	_pawns_player_1 = 0;
 	_pawns_player_2 = 0;
 
+	_cases[0] = new Case("Case 0", "ressources/case.png",100,100);
+	_cases[1] = new Case("Case 1", "ressources/case.png",200,100);
+	_cases[2] = new Case("Case 2", "ressources/case.png",300,100);
+	_cases[3] = new Case("Case 3", "ressources/case.png",100,200);
+	_cases[4] = new Case("Case 4", "ressources/empty.png",200,200);
+	_cases[5] = new Case("Case 5", "ressources/case.png",300,200);
+	_cases[6] = new Case("Case 6", "ressources/case.png",100,300);
+	_cases[7] = new Case("Case 7", "ressources/case.png",200,300);
+	_cases[8] = new Case("Case 8", "ressources/case.png",300,300);
+
 }
 
 
 Board::~Board()
 {
-	_cases.clear();
+	
 }
 
 int Board::GetSize() {
@@ -38,9 +48,12 @@ void Board::SetPawnsPlayer2(int value) {
 	_pawns_player_2 = value;
 }
 
-std::list<Case> Board::GetCases() {
+Case** Board::GetCases() {
 	return _cases;
 }
-void Board::SetCases(std::list<Case> value) {
-	_cases = value;
+void Board::SetCases(Case* value[9]) {
+	for(int i=0;i<9;i++)
+	{
+		_cases[i] = value[i];
+	}
 }

@@ -82,6 +82,11 @@ Component * GameObject::getComponent(sf::String _n)
 	return nullptr;
 }
 
+void GameObject::setName(sf::String value)
+{
+	name = value;
+}
+
 sf::String GameObject::getName()
 {
 	return name;

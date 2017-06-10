@@ -29,6 +29,7 @@ public:
 	bool removeComponent(sf::String _n);
 	Component* getComponent(sf::String _n);
 
+	void setName(sf::String value);
 	sf::String getName();
 };
 

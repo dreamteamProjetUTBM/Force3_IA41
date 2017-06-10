@@ -13,7 +13,7 @@ private:
 	int _pawns_player_1;
 	int _pawns_player_2;
 
-	std::list<Case> _cases;
+	Case* _cases[9];
 
 public:
 	Board();
@@ -28,8 +28,8 @@ public:
 	int Board::GetPawnsPlayer2();
 	void Board::SetPawnsPlayer2(int value);
 
-	std::list<Case> Board::GetCases();
-	void Board::SetCases(std::list<Case> value);
+	Case** Board::GetCases();
+	void Board::SetCases(Case* value[9]);
 
 
 	

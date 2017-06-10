@@ -4,7 +4,7 @@ Button::Button(sf::String _text,
 	std::function<void(SpriteComponent*)> _click, 
 	std::function<void(SpriteComponent*)> _release) : GameObject(_text)
 {
-	spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, "ressources/case.jpg");
+	spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, "ressources/case.png");
 	addComponent(spriteComp);
 
 	clickComp = new ClickableComponent(COMP_CLICK, spriteComp);
@@ -20,6 +20,8 @@ Button::~Button()
 void Button::init(Display * _disp)
 {
 	GameObject::init(_disp);
+
+	
 }
 
 void Button::update(Display * _disp, sf::Event& _event)
