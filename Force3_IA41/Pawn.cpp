@@ -2,11 +2,11 @@
 
 
 
-Pawn::Pawn()
+Pawn::Pawn() : GameObject("null")
 {
 }
 
-Pawn::Pawn(int playerID) {
+Pawn::Pawn(int playerID) : GameObject(""+playerID){
 	SetPlayerID(playerID);
 }
 

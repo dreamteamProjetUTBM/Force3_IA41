@@ -22,7 +22,8 @@ int main(int argc, char* argv[])
 	disp->addScene(menu);
 	disp->addScene(game);
 
-	disp->switchScene(SCENE_MENU);
+	//disp->switchScene(SCENE_MENU);
+	disp->switchScene(SCENE_GAME);
 	disp->start(true);
 
 	delete disp;
