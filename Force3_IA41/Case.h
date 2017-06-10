@@ -18,8 +18,7 @@ private:
 	SpriteComponent* spriteComp;
 	ClickableComponent* clickComp;
 
-
-	Pawn _pawn;
+	Pawn* my_pawn;
 
 public:
 	Case(sf::String _name,sf::String _image, int x,int y);
@@ -27,8 +26,10 @@ public:
 	~Case();
 	Case &operator=(Case&);
 
-	Pawn Case::GetPawn();
-	void Case::SetPawn(Pawn value);
+	Pawn* Case::GetPawn();
+	void Case::SetPawn(Pawn* value);
+
+
 
 	void init(Display* _disp) override;
 	void update(Display* _disp, sf::Event& _event) override;

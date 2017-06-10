@@ -11,6 +11,7 @@ class Pawn : public GameObject
 {
 private:
 	int playerID;
+	sf::CircleShape shape;
 
 	SpriteComponent* spriteComp;
 	ClickableComponent* clickComp;
@@ -22,5 +23,10 @@ public:
 
 	int Pawn::GetPlayerID();
 	void Pawn::SetPlayerID(int value);
+	void setPosition(int x, int y);
+
+	void init(Display* _disp) override;
+	void update(Display* _disp, sf::Event& _event) override;
+	void draw(Display* _disp) override;
 };
 

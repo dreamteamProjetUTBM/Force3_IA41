@@ -1,4 +1,5 @@
 ﻿#include "ClickableComponent.h"
+#include <iostream>
 
 ClickableComponent::ClickableComponent(sf::String _name, SpriteComponent* _sprite) : Component(_name)
 {
@@ -16,7 +17,8 @@ void ClickableComponent::init(Display* _disp)
 
 void ClickableComponent::update(Display* _disp, sf::Event& _event)
 {
-	bool inside = sc->getRect().contains(_event.mouseMove.x, _event.mouseMove.y);
+	bool inside = sc->getRect().contains(_event.mouseMove.x, _event.mouseMove.y);	
+
 	if(inside)
 	{
 		if(_event.type == sf::Event::MouseButtonPressed)
