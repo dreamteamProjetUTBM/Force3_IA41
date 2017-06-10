@@ -20,6 +20,8 @@ void GameScene::init(Display * _disp)
 	for (int i = 0; i < 9; i++) {
 		addGameObject(_cases[i]);
 	}
+	_cases[1]->SetPawn(new Pawn(1));
+
 }
 
 void GameScene::update(Display * _disp, sf::Event & _event)

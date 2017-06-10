@@ -11,7 +11,7 @@ Pawn::Pawn() : GameObject("null")
 Pawn::Pawn(int playerID) : GameObject(""+playerID){
 	SetPlayerID(playerID);
 
-	shape = sf::CircleShape(50);
+	shape = new sf::CircleShape(50);
 
 	sf::Color background_color;
 	sf::Color border_color;
@@ -25,13 +25,17 @@ Pawn::Pawn(int playerID) : GameObject(""+playerID){
 		border_color = sf::Color(78, 99, 171);
 	}
 
-	shape.setFillColor(background_color);
-	shape.setOutlineThickness(5);
-	shape.setOutlineColor(border_color);
+	shape->setFillColor(background_color);
+	shape->setOutlineThickness(5);
+	shape->setOutlineColor(border_color);
+
+	addComponent(spriteComp);
+
+
 
 	clickComp = new ClickableComponent(COMP_CLICK, spriteComp);
 	clickComp->setClickedCallback([](SpriteComponent* sc) {
-		std::cout << "case pressed" << std::endl;
+		std::cout << "jeton pressed" << std::endl;
 
 		/*if(c'est ton tour)
 		{
@@ -52,6 +56,7 @@ Pawn::Pawn(int playerID) : GameObject(""+playerID){
 
 Pawn::~Pawn()
 {
+	free(shape);
 }
 
 int Pawn::GetPlayerID() {
@@ -80,4 +85,5 @@ void Pawn::update(Display * _disp, sf::Event & _event)
 void Pawn::draw(Display * _disp)
 {
 	GameObject::draw(_disp);
+	draw(shape);
 }

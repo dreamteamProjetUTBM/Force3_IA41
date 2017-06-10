@@ -15,7 +15,7 @@ private:
 	const sf::String COMP_CLICK = "clickComp";
 
 	int playerID;
-	sf::CircleShape shape;
+	sf::CircleShape* shape;
 
 	SpriteComponent* spriteComp;
 	ClickableComponent* clickComp;

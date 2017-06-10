@@ -17,7 +17,7 @@ Case::Case(sf::String _name, sf::String _image, int x, int y) : GameObject(_name
 		{
 			if(clic droit){
 				if(pawn.playerID == getCurrentJoueur().playerID){
-					le joueur doit choisir une autre case pour déplacer le jeton
+					le joueur doit choisir une autre case pour déplacer la case
 				}
 			}
 
@@ -57,6 +57,7 @@ Pawn* Case::GetPawn() {
 
 void Case::SetPawn(Pawn* value) {
 	my_pawn = value;
+	my_pawn->setPosition(spriteComp->getPosition().x, spriteComp->getPosition().y);
 }
 
 void Case::init(Display * _disp)
