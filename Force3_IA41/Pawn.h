@@ -10,6 +10,10 @@
 class Pawn : public GameObject
 {
 private:
+	/* CONSTANTES */
+	const sf::String COMP_SPRITE_INACTIVE = "spriteInact";
+	const sf::String COMP_CLICK = "clickComp";
+
 	int playerID;
 	sf::CircleShape shape;
 

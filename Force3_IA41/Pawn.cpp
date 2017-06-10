@@ -1,4 +1,5 @@
 #include "Pawn.h"
+#include <iostream>
 
 
 
@@ -28,6 +29,23 @@ Pawn::Pawn(int playerID) : GameObject(""+playerID){
 	shape.setOutlineThickness(5);
 	shape.setOutlineColor(border_color);
 
+	clickComp = new ClickableComponent(COMP_CLICK, spriteComp);
+	clickComp->setClickedCallback([](SpriteComponent* sc) {
+		std::cout << "case pressed" << std::endl;
+
+		/*if(c'est ton tour)
+		{
+			if(clic droit){
+				if(pawn.playerID == getCurrentJoueur().playerID){
+					le joueur doit choisir une autre case pour déplacer le jeton
+				}
+			}
+		}
+		*/
+
+	});
+	clickComp->setReleasedCallback([](SpriteComponent* sc) { std::cout << "rel" << std::endl; });
+	addComponent(clickComp);
 
 
 }
