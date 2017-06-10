@@ -1,5 +1,7 @@
 #pragma once
 
+#include "PrologHelper.h"
+
 /*
 	Classe PrologScriptComponent
 
@@ -8,6 +10,9 @@
 */
 class PrologScriptComponent
 {
+private:
+	PrologHelper* plHelper;
+
 public:
 	PrologScriptComponent();
 	~PrologScriptComponent();
