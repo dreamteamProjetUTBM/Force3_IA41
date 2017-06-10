@@ -7,6 +7,9 @@
 
 	Scene qui représente la phase de jeu
 */
+
+#define SCENE_GAME "gameScene"
+
 class GameScene : public Scene
 {
 private:

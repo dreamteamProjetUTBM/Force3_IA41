@@ -2,7 +2,7 @@
 
 
 
-GameScene::GameScene()
+GameScene::GameScene() : Scene(SCENE_GAME)
 {
 }
 

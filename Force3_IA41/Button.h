@@ -22,6 +22,8 @@ public:
 	Button(sf::String _text, std::function<void(SpriteComponent*)> _click, std::function<void(SpriteComponent*)> _release);
 	~Button();
 
+	void setPosition(int x, int y);
+
 	void init(Display* _disp) override;
 	void update(Display* _disp, sf::Event& _event) override;
 	void draw(Display* _disp) override;
