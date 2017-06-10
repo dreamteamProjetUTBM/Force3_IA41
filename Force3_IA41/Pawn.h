@@ -15,14 +15,13 @@ private:
 	const sf::String COMP_CLICK = "clickComp";
 
 	int playerID;
-	sf::CircleShape* shape;
 
 	SpriteComponent* spriteComp;
 	ClickableComponent* clickComp;
 
 public:
 	Pawn();
-	Pawn(int playerID);
+	Pawn(int playerID, sf::String _image);
 	~Pawn();
 
 	int Pawn::GetPlayerID();

@@ -20,7 +20,9 @@ void GameScene::init(Display * _disp)
 	for (int i = 0; i < 9; i++) {
 		addGameObject(_cases[i]);
 	}
-	_cases[1]->SetPawn(new Pawn(1));
+	Pawn* test = new Pawn(1, "ressources/pawn_j1.png");
+
+	_cases[1]->SetPawn(test);
 
 }
 
