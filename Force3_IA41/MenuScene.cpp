@@ -17,10 +17,11 @@ MenuScene::~MenuScene()
 void MenuScene::init(Display * _disp)
 {
 	button = new Button("Jouer !", 
-		[](SpriteComponent* sc) { std::cout << "pressed" << std::endl; }, 
+		[](SpriteComponent* sc) { std::cout << "Left pressed" << std::endl; },
+		[](SpriteComponent* sc) { std::cout << "Right pressed" << std::endl; },
 		[](SpriteComponent* sc) { std::cout << "released" << std::endl; });
 
-	button->setPosition(250, 250);
+	/*button->setPosition(250, 250);*/
 	addGameObject(button);
 }
 

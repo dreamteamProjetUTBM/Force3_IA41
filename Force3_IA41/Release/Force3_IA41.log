@@ -1,27 +1,9 @@
-﻿  Board.cpp
-Board.cpp(21): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-  Button.cpp
-Button.cpp(26): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-  Case.cpp
-Case.cpp(9): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-  ClickableComponent.cpp
+﻿  ClickableComponent.cpp
 ClickableComponent.cpp(20): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-  Component.cpp
-  Game.cpp
-  GameObject.cpp
-  GameScene.cpp
-  Main.cpp
-  MenuScene.cpp
-  Pawn.cpp
-Pawn.cpp(23): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-Pawn.cpp(67): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-  PrologScriptComponent.cpp
-  Scene.cpp
-  SpriteComponent.cpp
   Génération de code en cours
-  330 of 729 functions (45.3%) were compiled, the rest were copied from previous compilation.
-    245 functions were new in current compilation
-    70 functions had inline decision re-evaluated but remain unchanged
+  1 of 784 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    3 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
   Force3_IA41.vcxproj -> C:\Users\tgred\Source\Repos\Force3_IA41\Release\Force3_IA41.exe
   Force3_IA41.vcxproj -> C:\Users\tgred\Source\Repos\Force3_IA41\Release\Force3_IA41.pdb (Full PDB)

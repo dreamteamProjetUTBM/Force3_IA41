@@ -17,7 +17,7 @@ void ClickableComponent::init(Display* _disp)
 
 void ClickableComponent::update(Display* _disp, sf::Event& _event)
 {
-	bool inside = sc->getRect().contains(_event.mouseMove.x, _event.mouseMove.y);	
+	bool inside = sc->getRect().contains(_event.mouseButton.x, _event.mouseButton.y);	
 
 	if(inside)
 	{
@@ -27,7 +27,7 @@ void ClickableComponent::update(Display* _disp, sf::Event& _event)
 		{
 			if(!isClick)
 			{
-				std::cout << "click" << std::endl;
+				std::cout << sc->getRect().width << " " << sc->getRect().height << std::endl;
 				leftClicked(sc);
 				isClick = true;
 			}
