@@ -62,7 +62,12 @@ Pawn* Case::GetPawn() {
 void Case::SetPawn(Pawn* value) {
 	my_pawn = value;
 	//my_pawn->setPosition(spriteComp->getPosition().x, spriteComp->getPosition().y);
-	my_pawn->setPosition(0,0);
+	//my_pawn->setPosition(0,0);
+}
+
+sf::Vector2f Case::getPosition()
+{
+	return spriteComp->getPosition();
 }
 
 void Case::init(Display * _disp)

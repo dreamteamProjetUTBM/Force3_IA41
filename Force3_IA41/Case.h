@@ -29,6 +29,7 @@ public:
 	Pawn* Case::GetPawn();
 	void Case::SetPawn(Pawn* value);
 
+	sf::Vector2f getPosition();
 
 
 	void init(Display* _disp) override;

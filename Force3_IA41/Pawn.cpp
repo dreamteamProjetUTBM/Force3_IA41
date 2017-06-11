@@ -6,16 +6,21 @@
 Pawn::Pawn() : GameObject("null")
 {
 	playerID = 0;
-	//spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, "ressources/pawn_j1.png");
-	//spriteComp->setPosition(400, 100);
-	//addComponent(spriteComp);
 }
 
-Pawn::Pawn(int playerID,sf::String _image) : GameObject(""+playerID){
+Pawn::Pawn(int playerID, int x, int y) : GameObject(""+playerID){
+	//x et y correspondent au coin haut gauche de la CASE
+
 	SetPlayerID(playerID);
 
+	sf::String _image;
+	if (playerID == 1)
+		_image = "ressources/pawn_j1.png";
+	else
+		_image = "ressources/pawn_j2.png";
+
 	spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, _image);
-	//spriteComp->setPosition(400, 100);
+	spriteComp->setPosition(x+25, y+25);
 	addComponent(spriteComp);
 
 

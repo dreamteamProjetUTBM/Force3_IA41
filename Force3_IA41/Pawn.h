@@ -21,7 +21,7 @@ private:
 
 public:
 	Pawn();
-	Pawn(int playerID, sf::String _image);
+	Pawn(int playerID, int x,int y);
 	~Pawn();
 
 	int Pawn::GetPlayerID();
