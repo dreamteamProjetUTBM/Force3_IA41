@@ -1,7 +1,8 @@
 #include "Button.h"
 
 Button::Button(sf::String _text, 
-	std::function<void(SpriteComponent*)> _click, 
+	std::function<void(SpriteComponent*)> _leftClick,
+	std::function<void(SpriteComponent*)> _rightClick,
 	std::function<void(SpriteComponent*)> _release) : GameObject(_text)
 {
 	//spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, "ressources/button_jouer.png");
@@ -10,7 +11,10 @@ Button::Button(sf::String _text,
 	addComponent(spriteComp);
 
 	clickComp = new ClickableComponent(COMP_CLICK, spriteComp);
-	clickComp->setClickedCallback(_click);
+
+	/* Ajout des différents Callback pour le component ClickableComponent */
+	clickComp->setLeftClickedCallback(_leftClick);
+	clickComp->setRightClickCallback(_rightClick);
 	clickComp->setReleasedCallback(_release);
 	addComponent(clickComp);
 }

@@ -11,7 +11,7 @@ Case::Case(sf::String _name, sf::String _image, int x, int y) : GameObject(_name
 
 
 	clickComp = new ClickableComponent(COMP_CLICK, spriteComp);
-	clickComp->setClickedCallback([](SpriteComponent* sc) { 
+	clickComp->setLeftClickedCallback([](SpriteComponent* sc) { 
 		std::cout << "case pressed" << std::endl; 
 		
 		/*if(c'est ton tour)

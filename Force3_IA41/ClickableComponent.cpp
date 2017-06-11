@@ -21,15 +21,29 @@ void ClickableComponent::update(Display* _disp, sf::Event& _event)
 
 	if(inside)
 	{
-		if(_event.type == sf::Event::MouseButtonPressed)
+		/* Dans le cas du click GAUCHE */
+		if(_event.type == sf::Event::MouseButtonPressed && 
+			_event.mouseButton.button == sf::Mouse::Left)
 		{
 			if(!isClick)
 			{
 				std::cout << "click" << std::endl;
-				clicked(sc);
+				leftClicked(sc);
 				isClick = true;
 			}
 		}
+		/* Dans le cas du click DROIT */
+		else if(_event.type == sf::Event::MouseButtonPressed &&
+			_event.mouseButton.button == sf::Mouse::Right)
+		{
+			if (!isClick)
+			{
+				std::cout << "click" << std::endl;
+				rightClicked(sc);
+				isClick = true;
+			}
+		}
+		/* Dans tous les autres cas */
 		else
 		{
 			if (isClick)
@@ -53,9 +67,14 @@ void ClickableComponent::draw(Display* _disp)
 {
 }
 
-void ClickableComponent::setClickedCallback(std::function<void(SpriteComponent*)> _click)
+void ClickableComponent::setLeftClickedCallback(std::function<void(SpriteComponent*)> _click)
 {
-	clicked = _click;
+	leftClicked = _click;
+}
+
+void ClickableComponent::setRightClickCallback(std::function<void(SpriteComponent*)> _click)
+{
+	rightClicked = _click;
 }
 
 void ClickableComponent::setReleasedCallback(std::function<void(SpriteComponent*)> _real)

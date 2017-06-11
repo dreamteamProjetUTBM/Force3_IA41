@@ -19,7 +19,9 @@ private:
 	ClickableComponent* clickComp;
 
 public:
-	Button(sf::String _text, std::function<void(SpriteComponent*)> _click, std::function<void(SpriteComponent*)> _release);
+	Button(sf::String _text, std::function<void(SpriteComponent*)> _leftClick,
+		std::function<void(SpriteComponent*)> _rightClick,
+		std::function<void(SpriteComponent*)> _release);
 	~Button();
 
 	void setPosition(int x, int y);

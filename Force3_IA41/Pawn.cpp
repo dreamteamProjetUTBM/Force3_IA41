@@ -26,7 +26,7 @@ Pawn::Pawn(int playerID, int x, int y) : GameObject(""+playerID){
 
 
 	clickComp = new ClickableComponent(COMP_CLICK, spriteComp);
-	clickComp->setClickedCallback([](SpriteComponent* sc) {
+	clickComp->setLeftClickedCallback([](SpriteComponent* sc) {
 		std::cout << "jeton pressed" << std::endl;
 
 		/*if(c'est ton tour)
