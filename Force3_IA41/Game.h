@@ -11,7 +11,7 @@ class Game
 private:
 	int _score_J1;
 	int _score_J2;
-
+	int _whosTurnIs;
 	GameScene* _gameScene;
 
 public:
@@ -24,7 +24,12 @@ public:
 	int Game::GetScoreJ2();
 	void Game::SetScoreJ2(int value);
 
+	int Game::getPlayersTurn();
+	void Game::setPlayersTurn(int value);
+
 	GameScene* getGameScene();
+
+	int Play();
 
 
 };
