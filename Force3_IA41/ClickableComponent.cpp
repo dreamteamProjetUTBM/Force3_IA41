@@ -55,7 +55,6 @@ void ClickableComponent::update(Display* _disp, sf::Event& _event)
 	{
 		if(isClick)
 		{
-			released(sc);
 			isClick = false;
 		}
 	}

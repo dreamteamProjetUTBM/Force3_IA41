@@ -22,7 +22,6 @@ private:
 
 public:
 	Case(sf::String _name,sf::String _image, int x,int y);
-	Case();
 	~Case();
 	Case &operator=(Case&);
 

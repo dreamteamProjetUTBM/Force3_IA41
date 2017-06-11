@@ -8,15 +8,15 @@ Board::Board()
 	_pawns_player_1 = 0;
 	_pawns_player_2 = 0;
 
-	_cases[0] = new Case("Case 0", "ressources/case.png",100,100);
-	_cases[1] = new Case("Case 1", "ressources/case.png",200,100);
-	_cases[2] = new Case("Case 2", "ressources/case.png",300,100);
-	_cases[3] = new Case("Case 3", "ressources/case.png",100,200);
-	_cases[4] = new Case("Case 4", "ressources/empty.png",200,200);
-	_cases[5] = new Case("Case 5", "ressources/case.png",300,200);
-	_cases[6] = new Case("Case 6", "ressources/case.png",100,300);
-	_cases[7] = new Case("Case 7", "ressources/case.png",200,300);
-	_cases[8] = new Case("Case 8", "ressources/case.png",300,300);
+	_cases[0] = new Case(CASE_0, "ressources/case.png",100,100);
+	_cases[1] = new Case(CASE_1, "ressources/case.png",200,100);
+	_cases[2] = new Case(CASE_2, "ressources/case.png",300,100);
+	_cases[3] = new Case(CASE_3, "ressources/case.png",100,200);
+	_cases[4] = new Case(CASE_4, "ressources/empty.png",200,200);
+	_cases[5] = new Case(CASE_5, "ressources/case.png",300,200);
+	_cases[6] = new Case(CASE_6, "ressources/case.png",100,300);
+	_cases[7] = new Case(CASE_7, "ressources/case.png",200,300);
+	_cases[8] = new Case(CASE_8, "ressources/case.png",300,300);
 
 	_cases[2]->SetPawn(new Pawn(2,_cases[2]->getPosition().x, _cases[2]->getPosition().y));
 

@@ -39,10 +39,6 @@ Case::Case(sf::String _name, sf::String _image, int x, int y) : GameObject(_name
 
 }
 
-Case::Case() : GameObject("null"){
-
-}
-
 Case::~Case()
 {
 }

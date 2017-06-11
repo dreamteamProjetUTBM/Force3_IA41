@@ -18,9 +18,9 @@ MenuScene::~MenuScene()
 void MenuScene::init(Display * _disp)
 {
 	button = new Button("Jouer !", 
-		[_disp](SpriteComponent* sc) { _disp->switchScene(SCENE_GAME); },
-		[](SpriteComponent* sc) { std::cout << "Right pressed" << std::endl; },
-		[](SpriteComponent* sc) { std::cout << "released" << std::endl; });
+		[](SpriteComponent* sc) { },
+		[](SpriteComponent* sc) { },
+		[_disp](SpriteComponent* sc) { _disp->switchScene(SCENE_GAME); });
 
 	button->setPosition(250, 250);
 	addGameObject(button);
