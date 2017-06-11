@@ -22,7 +22,7 @@ void MenuScene::init(Display * _disp)
 		[](SpriteComponent* sc) { std::cout << "Right pressed" << std::endl; },
 		[](SpriteComponent* sc) { std::cout << "released" << std::endl; });
 
-	/*button->setPosition(250, 250);*/
+	button->setPosition(250, 250);
 	addGameObject(button);
 }
 

@@ -27,7 +27,6 @@ void ClickableComponent::update(Display* _disp, sf::Event& _event)
 		{
 			if(!isClick)
 			{
-				std::cout << sc->getRect().width << " " << sc->getRect().height << std::endl;
 				leftClicked(sc);
 				isClick = true;
 			}
@@ -38,7 +37,6 @@ void ClickableComponent::update(Display* _disp, sf::Event& _event)
 		{
 			if (!isClick)
 			{
-				std::cout << "click" << std::endl;
 				rightClicked(sc);
 				isClick = true;
 			}
@@ -65,6 +63,7 @@ void ClickableComponent::update(Display* _disp, sf::Event& _event)
 
 void ClickableComponent::draw(Display* _disp)
 {
+	/* Pas de dessin pour ce component */
 }
 
 void ClickableComponent::setLeftClickedCallback(std::function<void(SpriteComponent*)> _click)
