@@ -13,16 +13,16 @@ GameScene::~GameScene()
 
 void GameScene::init(Display * _disp)
 {
+
+	_disp->setClearColor(172, 172, 172);
 	board = new Board();
 
 	Case** _cases = board->GetCases();
 
 	for (int i = 0; i < 9; i++) {
 		addGameObject(_cases[i]);
+		addGameObject(_cases[i]->GetPawn());
 	}
-	Pawn* test = new Pawn(1, "ressources/pawn_j1.png");
-
-	_cases[1]->SetPawn(test);
 
 }
 

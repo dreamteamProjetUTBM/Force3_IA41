@@ -1,5 +1,5 @@
 #pragma once
-
+#include "GameScene.h"
 /*
 	Classe Game
 
@@ -12,6 +12,8 @@ private:
 	int _score_J1;
 	int _score_J2;
 
+	GameScene* _gameScene;
+
 public:
 	Game();
 	~Game();
@@ -21,5 +23,9 @@ public:
 
 	int Game::GetScoreJ2();
 	void Game::SetScoreJ2(int value);
+
+	GameScene* getGameScene();
+
+
 };
 

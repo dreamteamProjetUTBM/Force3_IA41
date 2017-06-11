@@ -27,3 +27,8 @@ int Game::GetScoreJ2() {
 void Game::SetScoreJ2(int value) {
 	_score_J2 = value;
 }
+
+GameScene * Game::getGameScene()
+{
+	return _gameScene;
+}

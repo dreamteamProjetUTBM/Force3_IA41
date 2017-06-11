@@ -18,6 +18,8 @@ Board::Board()
 	_cases[7] = new Case("Case 7", "ressources/case.png",200,300);
 	_cases[8] = new Case("Case 8", "ressources/case.png",300,300);
 
+	_cases[2]->SetPawn(new Pawn(2,"ressources/pawn_j2.png"));
+
 }
 
 

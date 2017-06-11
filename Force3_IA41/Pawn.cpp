@@ -6,12 +6,16 @@
 Pawn::Pawn() : GameObject("null")
 {
 	playerID = 0;
+	//spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, "ressources/pawn_j1.png");
+	//spriteComp->setPosition(400, 100);
+	//addComponent(spriteComp);
 }
 
 Pawn::Pawn(int playerID,sf::String _image) : GameObject(""+playerID){
 	SetPlayerID(playerID);
 
 	spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, _image);
+	//spriteComp->setPosition(400, 100);
 	addComponent(spriteComp);
 
 
@@ -45,6 +49,12 @@ int Pawn::GetPlayerID() {
 
 void Pawn::SetPlayerID(int value) {
 	playerID = value;
+
+	if (value == 1) 
+		spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, "ressources/pawn_j1.png");
+	else
+		spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, "ressources/pawn_j2.png");
+	
 }
 
 void Pawn::setPosition(int x, int y)

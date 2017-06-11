@@ -5,9 +5,10 @@
 Case::Case(sf::String _name, sf::String _image, int x, int y) : GameObject(_name)
 {
 	spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, _image);
-	addComponent(spriteComp);
 
 	spriteComp->setPosition(x,y);
+	addComponent(spriteComp);
+
 
 	clickComp = new ClickableComponent(COMP_CLICK, spriteComp);
 	clickComp->setClickedCallback([](SpriteComponent* sc) { 
@@ -33,6 +34,9 @@ Case::Case(sf::String _name, sf::String _image, int x, int y) : GameObject(_name
 	});
 	clickComp->setReleasedCallback([](SpriteComponent* sc) { std::cout << "rel" << std::endl; });
 	addComponent(clickComp);
+
+	my_pawn = new Pawn();
+
 }
 
 Case::Case() : GameObject("null"){
