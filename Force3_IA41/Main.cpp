@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 	_putenv("SWI_HOME_DIR=C:\\Program Files (x86)\\swipl\\");
 
 	Scene* menu = new MenuScene();
-	Scene* game = new GameScene();
+	Scene* game = new GameScene(argv[0]);
 
 
 	Display* disp = new Display(854, 480, "Force 3");

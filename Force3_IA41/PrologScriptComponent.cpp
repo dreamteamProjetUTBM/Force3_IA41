@@ -2,8 +2,9 @@
 
 
 
-PrologScriptComponent::PrologScriptComponent()
+PrologScriptComponent::PrologScriptComponent(char* arg0)
 {
+	plHelper = new PrologHelper(arg0);
 }
 
 

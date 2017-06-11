@@ -14,7 +14,7 @@ private:
 	PrologHelper* plHelper;
 
 public:
-	PrologScriptComponent();
+	PrologScriptComponent(char* arg0);
 	~PrologScriptComponent();
 };
 

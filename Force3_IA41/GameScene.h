@@ -15,7 +15,7 @@ private:
 	Board* board;
 
 public:
-	GameScene();
+	GameScene(char* arg0);
 	~GameScene();
 
 	void init(Display* _disp) override;
