@@ -18,18 +18,18 @@ public:
 	Game();
 	~Game();
 
-	int Game::GetScoreJ1();
+	int Game::GetScoreJ1() const;
 	void Game::SetScoreJ1(int value);
 
-	int Game::GetScoreJ2();
+	int Game::GetScoreJ2() const;
 	void Game::SetScoreJ2(int value);
 
-	int Game::getPlayersTurn();
+	int Game::getPlayersTurn() const;
 	void Game::setPlayersTurn(int value);
 
-	GameScene* getGameScene();
+	GameScene* getGameScene() const;
 
-	int Play();
+	static int Play();
 
 
 };

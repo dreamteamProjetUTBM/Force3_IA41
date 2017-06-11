@@ -2,14 +2,13 @@
 #include "Scene.h"
 #include "Board.h"
 
+#define SCENE_GAME "gameScene"
+
 /*
 	Classe GameScene
 
 	Scene qui représente la phase de jeu
 */
-
-#define SCENE_GAME "gameScene"
-
 class GameScene : public Scene
 {
 private:
