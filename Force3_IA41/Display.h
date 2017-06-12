@@ -36,5 +36,6 @@ public:
 
 	/* Permet de fermer la fenêtre */
 	void close();
+	sf::RenderWindow& getWindow();
 };
 

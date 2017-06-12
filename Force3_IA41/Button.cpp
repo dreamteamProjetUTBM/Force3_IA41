@@ -56,12 +56,9 @@ void Button::draw(Display * _disp)
 	}
 	else
 	{
-		if(!clickComp->isClicked())
-		{
-			spriteActiveComp = spriteHoverComp;
-			std::cout << "Hover" << std::endl;
-		}
-		else
+		spriteActiveComp = spriteHoverComp;
+
+		if (clickComp->isClicked())
 		{
 			spriteActiveComp = spritePressedComp;
 		}

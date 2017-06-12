@@ -89,3 +89,8 @@ void Display::close()
 {
 	window.close();
 }
+
+sf::RenderWindow& Display::getWindow()
+{
+	return window;
+}

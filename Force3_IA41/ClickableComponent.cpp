@@ -17,7 +17,7 @@ void ClickableComponent::init(Display* _disp)
 
 void ClickableComponent::update(Display* _disp, sf::Event& _event)
 {
-	isHover = sc->getRect().contains(_event.mouseButton.x, _event.mouseButton.y);	
+	isHover = sc->getRect().contains(sf::Mouse::getPosition(_disp->getWindow()).x, sf::Mouse::getPosition(_disp->getWindow()).y);
 
 	if(isHover)
 	{
