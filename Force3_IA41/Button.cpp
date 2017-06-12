@@ -1,16 +1,19 @@
 #include "Button.h"
 
-Button::Button(sf::String _text, 
+Button::Button(sf::String _name, sf::String _imgNormal, 
+	sf::String _imgHover, sf::String _imgPressed,
 	std::function<void(SpriteComponent*)> _leftClick,
 	std::function<void(SpriteComponent*)> _rightClick,
-	std::function<void(SpriteComponent*)> _release) : GameObject(_text)
+	std::function<void(SpriteComponent*)> _release) : GameObject(_name)
 {
-	//spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, "ressources/button_jouer.png");
-	spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, "ressources/button_jouer.png");
+	/* Instantiation des différentes images des états du bouton */
+	spriteNormalComp = new SpriteComponent(COMP_SPRITE_NORMAL, _imgNormal);
+	spriteHoverComp = new SpriteComponent(COMP_SPRITE_HOVER, _imgHover);
+	spritePressedComp = new SpriteComponent(COMP_SPRITE_PRESSED, _imgPressed);
 
-	addComponent(spriteComp);
+	addComponent(spriteNormalComp);
 
-	clickComp = new ClickableComponent(COMP_CLICK, spriteComp);
+	clickComp = new ClickableComponent(COMP_CLICK, spriteNormalComp);
 
 	/* Ajout des différents Callback pour le component ClickableComponent */
 	clickComp->setLeftClickedCallback(_leftClick);
@@ -27,7 +30,7 @@ Button::~Button()
 
 void Button::setPosition(int x, int y)
 {
-	spriteComp->setPosition(x, y);
+	spriteNormalComp->setPosition(x, y);
 }
 
 void Button::init(Display * _disp)

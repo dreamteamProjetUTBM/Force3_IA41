@@ -57,7 +57,7 @@ Pawn* Case::GetPawn() {
 
 void Case::SetPawn(Pawn* value) {
 	my_pawn = value;
-	//my_pawn->setPosition(spriteComp->getPosition().x, spriteComp->getPosition().y);
+	//my_pawn->setPosition(spriteNormalComp->getPosition().x, spriteNormalComp->getPosition().y);
 	//my_pawn->setPosition(0,0);
 }
 

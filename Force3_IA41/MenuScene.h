@@ -16,6 +16,10 @@
 class MenuScene : public Scene
 {
 private:
+	/* CONSTANTES */
+	const sf::String BTN_PLAY = "playButton";
+	const sf::String BTN_QUIT = "quitButton";
+
 	Button* playButton;
 	Button* quitButton;
 

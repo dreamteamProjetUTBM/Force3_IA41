@@ -19,6 +19,7 @@ void TextSpriteComponent::init(Display* _disp)
 
 void TextSpriteComponent::update(Display* _disp, sf::Event& _event)
 {
+	/* Pas besoin d'update */
 }
 
 void TextSpriteComponent::draw(Display* _disp)

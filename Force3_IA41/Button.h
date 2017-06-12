@@ -12,14 +12,19 @@ class Button : public GameObject
 {
 private:
 	/* CONSTANTES */
-	const sf::String COMP_SPRITE_INACTIVE = "spriteInact";
+	const sf::String COMP_SPRITE_NORMAL = "spriteNormal";
+	const sf::String COMP_SPRITE_HOVER = "spriteHover";
+	const sf::String COMP_SPRITE_PRESSED = "spritePressed";
+
 	const sf::String COMP_CLICK = "clickComp";
 
-	SpriteComponent* spriteComp;
+	SpriteComponent* spriteNormalComp;
+	SpriteComponent* spriteHoverComp;
+	SpriteComponent* spritePressedComp;
 	ClickableComponent* clickComp;
 
 public:
-	Button(sf::String _text, std::function<void(SpriteComponent*)> _leftClick,
+	Button(sf::String _name, sf::String _imgNormal, sf::String _imgHover, sf::String _imgPressed, std::function<void(SpriteComponent*)> _leftClick,
 		std::function<void(SpriteComponent*)> _rightClick,
 		std::function<void(SpriteComponent*)> _release);
 	~Button();
