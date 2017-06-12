@@ -11,7 +11,7 @@ GameScene::~GameScene()
 void GameScene::init(Display * _disp)
 {
 
-	_disp->setClearColor(172, 172, 172);
+	_disp->setClearColor(254, 242, 216);
 	board = new Board();
 
 	Case** _cases = board->GetCases();
