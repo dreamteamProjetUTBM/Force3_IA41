@@ -39,6 +39,8 @@ int GameScene::Play()
 
 	while (!win) {
 
+		
+			
 	}
 
 	return 1; //J1 gagne

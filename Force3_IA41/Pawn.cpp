@@ -3,27 +3,10 @@
 
 
 
-Pawn::Pawn() : GameObject("null")
+Pawn::Pawn(sf::String name) : GameObject(name)
 {
+
 	playerID = 0;
-}
-
-Pawn::Pawn(int playerID, int x, int y) : GameObject(""+playerID){
-	//x et y correspondent au coin haut gauche de la CASE
-
-	SetPlayerID(playerID);
-
-	sf::String _image;
-	if (playerID == 1)
-		_image = "ressources/pawn_j1.png";
-	else
-		_image = "ressources/pawn_j2.png";
-
-	spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, _image);
-	spriteComp->setPosition(x, y);
-	addComponent(spriteComp);
-
-
 
 	clickComp = new ClickableComponent(COMP_CLICK, spriteComp);
 	clickComp->setLeftClickedCallback([](SpriteComponent* sc) {
@@ -40,8 +23,12 @@ Pawn::Pawn(int playerID, int x, int y) : GameObject(""+playerID){
 		*/
 
 	});
+	clickComp->setRightClickCallback([](SpriteComponent* sc) { std::cout << "right click on pawn" << std::endl; });
 	clickComp->setReleasedCallback([](SpriteComponent* sc) { std::cout << "rel" << std::endl; });
-	addComponent(clickComp);
+
+	std::cout << name.toAnsiString().c_str() << std::endl;
+	//addComponent(clickComp);
+	
 }
 
 Pawn::~Pawn()
@@ -54,17 +41,27 @@ int Pawn::GetPlayerID() {
 
 void Pawn::SetPlayerID(int value) {
 	playerID = value;
-
-	if (value == 1) 
-		spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, "ressources/pawn_j1.png");
-	else
-		spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, "ressources/pawn_j2.png");
-	
 }
 
 void Pawn::setPosition(int x, int y)
 {
 	spriteComp->setPosition(x, y);
+}
+
+void Pawn::SetPawn(int playerID, int x, int y)
+{
+	SetPlayerID(playerID);
+	sf::String _image;
+	
+	if (playerID == 1)
+		_image = "ressources/pawn_j1.png";
+	else if (playerID == 2)
+		_image = "ressouces/pawn_j2.png";
+
+	spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, _image);
+	spriteComp->setPosition(x, y);
+	addComponent(spriteComp);
+
 }
 
 void Pawn::init(Display * _disp)

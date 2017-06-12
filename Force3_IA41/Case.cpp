@@ -4,6 +4,7 @@
 
 Case::Case(sf::String _name, sf::String _image, int x, int y) : GameObject(_name)
 {
+	my_pawn = new Pawn(getName() + " Pawn");
 	spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, _image);
 
 	spriteComp->setPosition(x,y);
@@ -30,12 +31,27 @@ Case::Case(sf::String _name, sf::String _image, int x, int y) : GameObject(_name
 			}
 		}
 		*/
+
 	
 	});
+
+	clickComp->setRightClickCallback([this](SpriteComponent* sc) {
+		std::cout << "right click case pressed" << std::endl;
+
+		//SANS CONDITIONS POUR TEST
+		if (this->GetPawn()->GetPlayerID() == 0) //&& NbPions du joueur < 3) //On peut ajouter le pion
+		{
+			//Joueur 1 sera toujours l'humain
+			this->GetPawn()->SetPawn(1, this->getPosition().x, this->getPosition().y);
+		}
+
+
+	});
+
 	clickComp->setReleasedCallback([](SpriteComponent* sc) { std::cout << "rel" << std::endl; });
 	addComponent(clickComp);
 
-	my_pawn = new Pawn();
+	
 
 }
 
@@ -57,8 +73,6 @@ Pawn* Case::GetPawn() {
 
 void Case::SetPawn(Pawn* value) {
 	my_pawn = value;
-	//my_pawn->setPosition(spriteNormalComp->getPosition().x, spriteNormalComp->getPosition().y);
-	//my_pawn->setPosition(0,0);
 }
 
 sf::Vector2f Case::getPosition()

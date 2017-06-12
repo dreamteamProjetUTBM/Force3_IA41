@@ -20,13 +20,14 @@ private:
 	ClickableComponent* clickComp;
 
 public:
-	Pawn();
-	Pawn(int playerID, int x,int y);
+	Pawn(sf::String name);
 	~Pawn();
 
 	int Pawn::GetPlayerID();
 	void Pawn::SetPlayerID(int value);
 	void setPosition(int x, int y);
+	void SetPawn(int playerID, int x, int y);
+
 
 	void init(Display* _disp) override;
 	void update(Display* _disp, sf::Event& _event) override;
