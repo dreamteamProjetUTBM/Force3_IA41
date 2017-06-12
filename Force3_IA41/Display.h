@@ -33,5 +33,8 @@ public:
 	bool switchScene(sf::String _name);
 
 	void draw(sf::Drawable* _shap);
+
+	/* Permet de fermer la fenêtre */
+	void close();
 };
 

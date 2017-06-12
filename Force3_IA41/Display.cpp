@@ -84,3 +84,8 @@ void Display::draw(sf::Drawable * _shap)
 {
 	window.draw(*_shap);
 }
+
+void Display::close()
+{
+	window.close();
+}

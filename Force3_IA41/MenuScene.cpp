@@ -17,13 +17,22 @@ MenuScene::~MenuScene()
 
 void MenuScene::init(Display * _disp)
 {
-	button = new Button("Jouer !", 
-		[](SpriteComponent* sc) { },
-		[](SpriteComponent* sc) { },
+	/* On met le fond de la fenêtre en blanc */
+	_disp->setClearColor(255, 255, 255);
+
+	/* Bonton pour lancer la partie */
+	playButton = new Button("Jouer", 
+		[](SpriteComponent* sc) {},
+		[](SpriteComponent* sc) {},
 		[_disp](SpriteComponent* sc) { _disp->switchScene(SCENE_GAME); });
 
-	button->setPosition(250, 250);
-	addGameObject(button);
+	playButton->setPosition(250, 250);
+	addGameObject(playButton);
+
+	quitButton = new Button("Quitter",
+		[](SpriteComponent* sc) {},
+		[](SpriteComponent* sc) {},
+		[_disp](SpriteComponent* sc) { });
 }
 
 void MenuScene::update(Display * _disp, sf::Event& _event)

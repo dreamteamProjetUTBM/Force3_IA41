@@ -16,7 +16,8 @@
 class MenuScene : public Scene
 {
 private:
-	Button* button;
+	Button* playButton;
+	Button* quitButton;
 
 public:
 	MenuScene();
