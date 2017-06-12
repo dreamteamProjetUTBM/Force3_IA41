@@ -36,6 +36,8 @@ Button::~Button()
 void Button::setPosition(int x, int y)
 {
 	spriteNormalComp->setPosition(x, y);
+	spriteHoverComp->setPosition(x, y);
+	spritePressedComp->setPosition(x, y);
 }
 
 void Button::init(Display * _disp)

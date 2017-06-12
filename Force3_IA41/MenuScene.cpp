@@ -26,7 +26,7 @@ void MenuScene::init(Display * _disp)
 		[](SpriteComponent* sc) {},
 		[_disp](SpriteComponent* sc) { _disp->switchScene(SCENE_GAME); });
 
-	playButton->setPosition(250, 250);
+	playButton->setPosition(_disp->getWindow().getSize().x / 2 - 200 / 2, 250);
 	addGameObject(playButton);
 
 	/* Bouton pour quitter le jeu */
@@ -34,6 +34,7 @@ void MenuScene::init(Display * _disp)
 		[](SpriteComponent* sc) {},
 		[](SpriteComponent* sc) {},
 		[_disp](SpriteComponent* sc) { _disp->close(); });
+	quitButton->setPosition(_disp->getWindow().getSize().x / 2 - 200 / 2, 320);
 	addGameObject(quitButton);
 }
 

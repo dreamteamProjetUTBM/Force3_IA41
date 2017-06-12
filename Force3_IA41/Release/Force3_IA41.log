@@ -1,5 +1,4 @@
-﻿  Button.cpp
-Button.cpp(38): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+﻿  MenuScene.cpp
   Génération de code en cours
   1 of 1131 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
