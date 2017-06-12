@@ -26,7 +26,6 @@ Pawn::Pawn(sf::String name) : GameObject(name)
 	clickComp->setRightClickCallback([](SpriteComponent* sc) { std::cout << "right click on pawn" << std::endl; });
 	clickComp->setReleasedCallback([](SpriteComponent* sc) { std::cout << "rel" << std::endl; });
 
-	std::cout << name.toAnsiString().c_str() << std::endl;
 	//addComponent(clickComp);
 	
 }
