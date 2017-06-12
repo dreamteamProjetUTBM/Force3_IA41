@@ -17,9 +17,9 @@ void ClickableComponent::init(Display* _disp)
 
 void ClickableComponent::update(Display* _disp, sf::Event& _event)
 {
-	bool inside = sc->getRect().contains(_event.mouseButton.x, _event.mouseButton.y);	
+	isHover = sc->getRect().contains(_event.mouseButton.x, _event.mouseButton.y);	
 
-	if(inside)
+	if(isHover)
 	{
 		/* Dans le cas du click GAUCHE */
 		if(_event.type == sf::Event::MouseButtonPressed && 
@@ -51,7 +51,7 @@ void ClickableComponent::update(Display* _disp, sf::Event& _event)
 			}
 		}
 	}
-	else if(!inside)
+	else if(!isHover)
 	{
 		if(isClick)
 		{
@@ -78,4 +78,14 @@ void ClickableComponent::setRightClickCallback(std::function<void(SpriteComponen
 void ClickableComponent::setReleasedCallback(std::function<void(SpriteComponent*)> _real)
 {
 	released = _real;
+}
+
+bool ClickableComponent::isHovered() const
+{
+	return isHover;
+}
+
+bool ClickableComponent::isClicked() const
+{
+	return isClick;
 }

@@ -19,6 +19,7 @@ private:
 	std::function<void(SpriteComponent*)> released;
 
 	bool isClick;
+	bool isHover;
 
 public:
 	ClickableComponent(sf::String _name, SpriteComponent* _sprite);
@@ -34,4 +35,9 @@ public:
 	void setRightClickCallback(std::function<void(SpriteComponent*)> _click);
 	/* Permet de changer la fonction de callback pour le release*/
 	void setReleasedCallback(std::function<void(SpriteComponent*)> _real);
+
+	/* Savoir si le bouton est "HOVER" */
+	bool isHovered() const;
+	/* Savoir sir le bouton est cliqué */
+	bool isClicked() const;
 };

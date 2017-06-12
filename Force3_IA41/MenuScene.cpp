@@ -21,7 +21,7 @@ void MenuScene::init(Display * _disp)
 	_disp->setClearColor(254, 242, 216);
 
 	/* Bonton pour lancer la partie */
-	playButton = new Button(BTN_PLAY, "ressources/btn_play.png", "ressources/btn_play.png", "ressources/btn_play.png",
+	playButton = new Button(BTN_PLAY, "ressources/btn_play_normal.png", "ressources/btn_play_hover.png", "ressources/btn_play_pressed.png",
 		[](SpriteComponent* sc) {},
 		[](SpriteComponent* sc) {},
 		[_disp](SpriteComponent* sc) { _disp->switchScene(SCENE_GAME); });
@@ -30,7 +30,7 @@ void MenuScene::init(Display * _disp)
 	addGameObject(playButton);
 
 	/* Bouton pour quitter le jeu */
-	quitButton = new Button(BTN_QUIT, "ressources/btn_play.png", "ressources/btn_play.png", "ressources/btn_play.png",
+	quitButton = new Button(BTN_QUIT, "ressources/btn_quit_normal.png", "ressources/btn_quit_hover.png", "ressources/btn_quit_pressed.png",
 		[](SpriteComponent* sc) {},
 		[](SpriteComponent* sc) {},
 		[_disp](SpriteComponent* sc) { _disp->close(); });
