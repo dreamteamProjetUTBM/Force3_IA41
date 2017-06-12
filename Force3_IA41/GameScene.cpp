@@ -32,3 +32,14 @@ void GameScene::draw(Display * _disp)
 {
 	Scene::draw(_disp);
 }
+
+int GameScene::Play()
+{
+	bool win = false;
+
+	while (!win) {
+
+	}
+
+	return 1; //J1 gagne
+}

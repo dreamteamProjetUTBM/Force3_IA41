@@ -45,13 +45,3 @@ GameScene * Game::getGameScene() const
 	return _gameScene;
 }
 
-int Game::Play()
-{
-	bool win= false;
-
-	while (!win) {
-
-	}
-
-	return 1; //J1 gagne
-}

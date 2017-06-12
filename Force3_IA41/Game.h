@@ -29,8 +29,5 @@ public:
 
 	GameScene* getGameScene() const;
 
-	static int Play();
-
-
 };
 

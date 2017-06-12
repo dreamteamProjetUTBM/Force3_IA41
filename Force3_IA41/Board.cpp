@@ -18,7 +18,7 @@ Board::Board()
 	_cases[7] = new Case(CASE_7, "ressources/case.png", 178, 306);
 	_cases[8] = new Case(CASE_8, "ressources/case.png", 306, 306);
 
-	_cases[2]->SetPawn(new Pawn(2,_cases[2]->getPosition().x, _cases[2]->getPosition().y));
+	_cases[2]->SetPawn(new Pawn(1,_cases[2]->getPosition().x, _cases[2]->getPosition().y));
 
 }
 

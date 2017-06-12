@@ -20,7 +20,7 @@ Pawn::Pawn(int playerID, int x, int y) : GameObject(""+playerID){
 		_image = "ressources/pawn_j2.png";
 
 	spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, _image);
-	spriteComp->setPosition(x+25, y+25);
+	spriteComp->setPosition(x, y);
 	addComponent(spriteComp);
 
 
