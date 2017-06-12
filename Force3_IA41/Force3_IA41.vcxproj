@@ -142,6 +142,7 @@
     <ClCompile Include="IAPrologScriptComponent.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
+    <ClCompile Include="TextSpriteComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -164,6 +165,7 @@
     <ClInclude Include="IAPrologScriptComponent.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SpriteComponent.h" />
+    <ClInclude Include="TextSpriteComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

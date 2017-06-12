@@ -29,10 +29,11 @@ void MenuScene::init(Display * _disp)
 	playButton->setPosition(250, 250);
 	addGameObject(playButton);
 
+	/* Bouton pour quitter le jeu */
 	quitButton = new Button("Quitter",
 		[](SpriteComponent* sc) {},
 		[](SpriteComponent* sc) {},
-		[_disp](SpriteComponent* sc) { });
+		[_disp](SpriteComponent* sc) { _disp->close(); });
 }
 
 void MenuScene::update(Display * _disp, sf::Event& _event)
