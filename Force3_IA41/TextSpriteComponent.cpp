@@ -35,3 +35,18 @@ void TextSpriteComponent::setColor(int _r, int _g, int _b)
 {
 	text.setFillColor(sf::Color(_r, _g, _b));
 }
+
+void TextSpriteComponent::setPosition(sf::Vector2f _pos)
+{
+	text.setPosition(_pos);
+}
+
+void TextSpriteComponent::setPosition(float _x, float _y)
+{
+	text.setPosition(_x, _y);
+}
+
+sf::Vector2f TextSpriteComponent::getPosition() const
+{
+	return text.getPosition();
+}

@@ -25,4 +25,10 @@ public:
 	void setText(sf::String _text);
 	/* Changer la couleur d'affichage du texte */
 	void setColor(int _r, int _g, int _b);
+
+	/* Méthode pour changer la position */
+	void setPosition(sf::Vector2f _pos);
+	void setPosition(float _x, float _y);
+	/* Méthode pour récupérer la position */
+	sf::Vector2f getPosition() const;
 };
