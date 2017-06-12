@@ -34,6 +34,7 @@ void MenuScene::init(Display * _disp)
 		[](SpriteComponent* sc) {},
 		[](SpriteComponent* sc) {},
 		[_disp](SpriteComponent* sc) { _disp->close(); });
+	addGameObject(quitButton);
 }
 
 void MenuScene::update(Display * _disp, sf::Event& _event)
