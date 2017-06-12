@@ -21,6 +21,8 @@ private:
 	SpriteComponent* spriteNormalComp;
 	SpriteComponent* spriteHoverComp;
 	SpriteComponent* spritePressedComp;
+	SpriteComponent* spriteActiveComp;
+
 	ClickableComponent* clickComp;
 
 public:

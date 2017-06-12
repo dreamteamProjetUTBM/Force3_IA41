@@ -1,4 +1,5 @@
 #include "Button.h"
+#include <iostream>
 
 Button::Button(sf::String _name, sf::String _imgNormal, 
 	sf::String _imgHover, sf::String _imgPressed,
@@ -12,6 +13,10 @@ Button::Button(sf::String _name, sf::String _imgNormal,
 	spritePressedComp = new SpriteComponent(COMP_SPRITE_PRESSED, _imgPressed);
 
 	addComponent(spriteNormalComp);
+	addComponent(spriteHoverComp);
+	addComponent(spritePressedComp);
+
+	spriteActiveComp = spriteNormalComp;
 
 	clickComp = new ClickableComponent(COMP_CLICK, spriteNormalComp);
 
@@ -45,5 +50,22 @@ void Button::update(Display * _disp, sf::Event& _event)
 
 void Button::draw(Display * _disp)
 {
-	GameObject::draw(_disp);
+	if(!clickComp->isHovered())
+	{
+		spriteActiveComp = spriteNormalComp;
+	}
+	else
+	{
+		if(!clickComp->isClicked())
+		{
+			spriteActiveComp = spriteHoverComp;
+			std::cout << "Hover" << std::endl;
+		}
+		else
+		{
+			spriteActiveComp = spritePressedComp;
+		}
+	}
+
+	spriteActiveComp->draw(_disp);
 }
