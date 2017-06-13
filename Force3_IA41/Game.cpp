@@ -135,24 +135,27 @@ bool Game::joue(int coup)
 		bool est_taquin_simple = false, est_taquin_double = false;
 
 		std::vector<int> taquin_old_position = taquin_simple.at(old_position);
+
 		for each (int index in taquin_old_position)
 		{
 			if (index == new_posistion)
 				est_taquin_simple = true;
 		}
 
-		taquin_old_position = taquin_double.at(old_position);
-		for each (int index in taquin_old_position)
-		{
-			if (index == new_posistion)
-				est_taquin_double = true;
-		}
+		if (old_position != 4) {
+			taquin_old_position = taquin_double.at(old_position);
 
+			for each (int index in taquin_old_position)
+			{
+				if (index == new_posistion)
+					est_taquin_double = true;
+			}
+		}
 		if (est_taquin_simple) {
 			getGameScene()->getBoard()->switchCases(old_position, new_posistion);
 		}
 		//setCoupEnCours(false);
-
+		std::cout << "erreur" << std::endl;
 	}
 	return false;
 }
