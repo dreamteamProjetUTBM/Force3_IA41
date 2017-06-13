@@ -96,6 +96,7 @@ void Game::setNewPosition(Case* value)
 	}
 }
 
+
 GameScene * Game::getGameScene() const
 {
 	return _gameScene;
@@ -113,14 +114,13 @@ bool Game::verification_deplacement_cases()
 
 bool Game::joue(int coup)
 {
-
 	if (coup == 1) //ajout pion
 	{
-		return false;
+		
 	}
 	else if (coup == 2) //deplacement pion
 	{
-		return false;
+		
 	}
 	else if (coup == 3) //deplacement case
 	{
@@ -151,9 +151,8 @@ bool Game::joue(int coup)
 		if (est_taquin_simple) {
 			getGameScene()->getBoard()->switchCases(old_position, new_posistion);
 		}
-		setCoupEnCours(false);
+		//setCoupEnCours(false);
 
-		return false;
 	}
 	return false;
 }

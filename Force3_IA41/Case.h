@@ -33,6 +33,9 @@ public:
 	sf::Vector2f getPosition();
 	bool isEmpty();
 
+	void enableClick();
+	void disableClick();
+
 	void init(Display* _disp) override;
 	void update(Display* _disp, sf::Event& _event) override;
 	void draw(Display* _disp) override;

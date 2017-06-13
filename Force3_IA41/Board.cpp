@@ -1,5 +1,5 @@
 #include "Board.h")
-
+#include <iostream>
 
 
 Board::Board()
@@ -70,6 +70,12 @@ void Board::switchCases(int index1, int index2)
 	_cases[index1] = _cases[index2];
 	_cases[index2] = tmp;
 
+	_cases[index1]->disableClick();
+	_cases[index2]->disableClick();
+
 	_cases[index1]->setPosition(x1, y1);
 	_cases[index2]->setPosition(x2, y2);
+
+	_cases[index1]->enableClick();
+	_cases[index2]->enableClick();
 }
