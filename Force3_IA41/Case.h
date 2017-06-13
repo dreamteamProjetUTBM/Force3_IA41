@@ -19,9 +19,10 @@ private:
 	ClickableComponent* clickComp;
 
 	Pawn* my_pawn;
+	bool _isEmpty;
 
 public:
-	Case(sf::String _name,sf::String _image, int x,int y);
+	Case(sf::String _name,sf::String _image, int x,int y,bool isempty);
 	~Case();
 	Case &operator=(Case&);
 
@@ -29,7 +30,7 @@ public:
 	void Case::SetPawn(Pawn* value);
 
 	sf::Vector2f getPosition();
-
+	bool isEmpty();
 
 	void init(Display* _disp) override;
 	void update(Display* _disp, sf::Event& _event) override;

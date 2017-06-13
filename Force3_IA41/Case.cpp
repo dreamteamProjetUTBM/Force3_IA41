@@ -2,8 +2,9 @@
 #include <iostream>
 #include "Game.h"
 
-Case::Case(sf::String _name, sf::String _image, int x, int y) : GameObject(_name)
+Case::Case(sf::String _name, sf::String _image, int x, int y, bool isempty) : GameObject(_name)
 {
+	_isEmpty = isempty;
 	my_pawn = new Pawn(getName() + " Pawn");
 	spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, _image);
 
@@ -52,7 +53,10 @@ Case::Case(sf::String _name, sf::String _image, int x, int y) : GameObject(_name
 
 	clickComp->setRightClickCallback([this](SpriteComponent* sc) {
 		std::cout << "right click case pressed" << std::endl;
-
+		if (isEmpty()) {
+			std::cout << "You can't add a pawn here" << std::endl;
+			return;
+		}
 		//SANS CONDITIONS POUR TEST
 		if (this->GetPawn()->GetPlayerID() == 0) //&& NbPions du joueur < 3) //On peut ajouter le pion
 		{
@@ -93,6 +97,11 @@ void Case::SetPawn(Pawn* value) {
 sf::Vector2f Case::getPosition()
 {
 	return spriteComp->getPosition();
+}
+
+bool Case::isEmpty()
+{
+	return _isEmpty;
 }
 
 void Case::init(Display * _disp)
