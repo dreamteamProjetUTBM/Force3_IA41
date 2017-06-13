@@ -84,12 +84,16 @@ void Case::enableClick()
 			std::cout << "You can't add a pawn here" << std::endl;
 			return;
 		}
+		Game::Instance().setOldPosition(this);
+		Game::Instance().joue(1);
+
+
 		//SANS CONDITIONS POUR TEST
-		if (this->GetPawn()->GetPlayerID() == 0) //&& NbPions du joueur < 3) //On peut ajouter le pion
-		{
-			//Joueur 1 sera toujours l'humain
-			this->GetPawn()->SetPawn(1, this->getPosition().x, this->getPosition().y);
-		}
+		//if (this->GetPawn()->GetPlayerID() == 0) //&& NbPions du joueur < 3) //On peut ajouter le pion
+		//{
+		//	//Joueur 1 sera toujours l'humain
+		//	this->GetPawn()->SetPawn(1, this->getPosition().x, this->getPosition().y);
+		//}
 	});
 
 	clickComp->setReleasedCallback([this](SpriteComponent* sc) {  });

@@ -132,7 +132,12 @@ bool Game::joue(int coup)
 {
 	if (coup == 1) //ajout pion
 	{
-		
+		Case* target = getGameScene()->getBoard()->GetCases()[old_position];
+		if (target->GetPawn()->GetPlayerID() == 0) //&& NbPions du joueur < 3) //On peut ajouter le pion
+		{
+			//Joueur 1 sera toujours l'humain
+			target->GetPawn()->SetPawn(1, target->getPosition().x, target->getPosition().y);
+		}
 	}
 	else if (coup == 2) //deplacement pion
 	{
