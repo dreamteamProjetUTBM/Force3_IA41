@@ -58,18 +58,18 @@ bool Case::isEmpty()
 void Case::enableClick()
 {
 	clickComp->setLeftClickedCallback([this](SpriteComponent* sc) {
-		std::cout << "left click case pressed" << std::endl;
+		//std::cout << "left click case pressed" << std::endl;
 		//if (game.getPlayersTurn() == 1)
 		//{
 		disableClick();
 		if (!Game::Instance().getCoupEnCours()) {
-			std::cout << "Premier coup" << std::endl;
+			//std::cout << "Premier coup" << std::endl;
 			Game::Instance().setOldPosition(this);
 			Game::Instance().setCoupEnCours(true);
 		}
 		else
 		{
-			std::cout << "Second coup" << std::endl;
+			//std::cout << "Second coup" << std::endl;
 			Game::Instance().setNewPosition(this);
 			Game::Instance().joue(3);
 			Game::Instance().setCoupEnCours(false);
@@ -79,7 +79,7 @@ void Case::enableClick()
 	});
 
 	clickComp->setRightClickCallback([this](SpriteComponent* sc) {
-		std::cout << "right click case pressed" << std::endl;
+		//std::cout << "right click case pressed" << std::endl;
 		if (isEmpty()) {
 			std::cout << "You can't add a pawn here" << std::endl;
 			return;
