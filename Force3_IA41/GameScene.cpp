@@ -14,7 +14,7 @@ void GameScene::init(Display * _disp)
 	_disp->setClearColor(254, 242, 216);
 	board = new Board();
 
-	Case** _cases = board->GetCases();
+	std::vector<Case*> _cases = board->GetCases();
 
 	for (int i = 0; i < 9; i++) {
 		addGameObject(_cases[i]);
@@ -33,15 +33,8 @@ void GameScene::draw(Display * _disp)
 	Scene::draw(_disp);
 }
 
-int GameScene::Play()
+Board * GameScene::getBoard()
 {
-	bool win = false;
-
-	while (!win) {
-
-		
-			
-	}
-
-	return 1; //J1 gagne
+	return board;
 }
+

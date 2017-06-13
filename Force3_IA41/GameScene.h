@@ -22,6 +22,6 @@ public:
 	void update(Display* _disp, sf::Event& _event) override;
 	void draw(Display* _disp) override;
 
-	static int Play();
+	Board* getBoard();
 };
 

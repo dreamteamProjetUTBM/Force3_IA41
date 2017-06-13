@@ -1,5 +1,6 @@
 #pragma once
 #include "GameScene.h"
+#include "Board.h"
 /*
 	Classe Game
 
@@ -9,12 +10,31 @@
 class Game
 {
 private:
+	static Game m_instance;
+
 	int _score_J1;
 	int _score_J2;
+	bool coup_en_cours = false;
+
 	int _whosTurnIs;
 	GameScene* _gameScene;
 
+	int old_position;
+	int new_posistion;
+
+	std::map<int, std::vector<int>> taquin_simple;
+	std::map<int, std::vector<int>> taquin_double;
+
+
+	std::vector<int> getCasesIndex_AdjacentAndDiagonal(int index);
+	std::vector<int> getCasesIndex_Adjacent(int index);
+	bool isAdjaccentOrDiagonale(std::vector<Case*> cases);
+	bool isAdjaccent(std::vector<Case*> cases);
+
+
 public:
+	static Game& Instance();
+
 	Game();
 	~Game();
 
@@ -26,6 +46,12 @@ public:
 
 	int Game::getPlayersTurn() const;
 	void Game::setPlayersTurn(int value);
+
+	bool getCoupEnCours();
+	void setCoupEnCours(bool value);
+
+	void setOldPosition(Case* value);
+	void setNewPosition(Case* value);
 
 	GameScene* getGameScene() const;
 

@@ -1,4 +1,4 @@
-#include "Board.h"
+#include "Board.h")
 
 
 
@@ -8,6 +8,7 @@ Board::Board()
 	_pawns_player_1 = 0;
 	_pawns_player_2 = 0;
 
+	_cases = std::vector<Case*>(9);
 	_cases[0] = new Case(CASE_0, "ressources/case.png", 50, 50);
 	_cases[1] = new Case(CASE_1, "ressources/case.png", 178, 50);
 	_cases[2] = new Case(CASE_2, "ressources/case.png", 306, 50);
@@ -50,12 +51,9 @@ void Board::SetPawnsPlayer2(int value) {
 	_pawns_player_2 = value;
 }
 
-Case** Board::GetCases() {
+std::vector<Case*> Board::GetCases() {
 	return _cases;
 }
-void Board::SetCases(Case* value[9]) {
-	for(int i=0;i<9;i++)
-	{
-		_cases[i] = value[i];
-	}
+void Board::SetCases(std::vector<Case*> value) {
+	_cases = value;
 }
