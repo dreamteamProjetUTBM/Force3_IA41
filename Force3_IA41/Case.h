@@ -19,6 +19,9 @@ private:
 	ClickableComponent* clickComp;
 
 	Pawn* my_pawn;
+
+	bool _ajouer;
+
 	bool _isEmpty;
 
 public:

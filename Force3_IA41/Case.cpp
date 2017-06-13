@@ -42,6 +42,7 @@ void Case::setPosition(int x, int y)
 	spriteComp->setPosition(sf::Vector2f(x, y));
 	if(!isEmpty())
 		my_pawn->setPosition(x, y);
+	_ajouer = true;
 }
 
 sf::Vector2f Case::getPosition()
@@ -60,6 +61,7 @@ void Case::enableClick()
 		std::cout << "left click case pressed" << std::endl;
 		//if (game.getPlayersTurn() == 1)
 		//{
+		disableClick();
 		if (!Game::Instance().getCoupEnCours()) {
 			std::cout << "Premier coup" << std::endl;
 			Game::Instance().setOldPosition(this);
@@ -72,6 +74,7 @@ void Case::enableClick()
 			Game::Instance().joue(3);
 			Game::Instance().setCoupEnCours(false);
 		}
+		enableClick();
 		//}
 	});
 
@@ -107,7 +110,13 @@ void Case::init(Display * _disp)
 
 void Case::update(Display * _disp, sf::Event & _event)
 {
+	if(_ajouer)
+		disableClick();
 	GameObject::update(_disp, _event);
+	if (_ajouer) {
+		enableClick();
+		_ajouer = false;
+	}
 }
 
 void Case::draw(Display * _disp)
