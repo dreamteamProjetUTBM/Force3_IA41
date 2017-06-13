@@ -1,6 +1,6 @@
 #include "Case.h"
 #include <iostream>
-
+#include "Game.h"
 
 Case::Case(sf::String _name, sf::String _image, int x, int y) : GameObject(_name)
 {
@@ -12,25 +12,40 @@ Case::Case(sf::String _name, sf::String _image, int x, int y) : GameObject(_name
 
 
 	clickComp = new ClickableComponent(COMP_CLICK, spriteComp);
-	clickComp->setLeftClickedCallback([](SpriteComponent* sc) { 
+	clickComp->setLeftClickedCallback([this](SpriteComponent* sc) { 
 		std::cout << "case pressed" << std::endl; 
-		
-		/*if(c'est ton tour)
-		{
+		//if (game.getPlayersTurn() == 1)
+		//{
+			if (!Game::Instance().getCoupEnCours()) {
+				std::cout << "Premier coup" << std::endl;
+				Game::Instance().setOldPosition(this);
+
+				//Ne change pas le coup..
+				Game::Instance().setCoupEnCours(true);
+			}
+			else
+			{
+				std::cout << "Second coup" << std::endl;
+
+				Game::Instance().setNewPosition(this);
+				Game::Instance().joue(3);
+			}
+
+
+			/*
 			if(clic droit){
-				if(pawn.playerID == getCurrentJoueur().playerID){
-					le joueur doit choisir une autre case pour déplacer la case
-				}
+			if(pawn.playerID == getCurrentJoueur().playerID){
+			le joueur doit choisir une autre case pour déplacer la case
+			}
 			}
 
 			else {
-				if(pawn.playerID == 0 && getCurrentJoueur().PawnLeftCount > 0){
-					on ajoute un pion
-					tour suivant
-				}
+			if(pawn.playerID == 0 && getCurrentJoueur().PawnLeftCount > 0){
+			on ajoute un pion
+			tour suivant
 			}
-		}
-		*/
+			}*/
+		//}
 
 	
 	});

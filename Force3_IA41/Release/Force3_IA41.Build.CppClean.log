@@ -1,21 +1,32 @@
-c:\users\tgred\documents\visual studio 2015\projects\force3_ia41\force3_ia41\release\vc140.pdb
-c:\users\tgred\documents\visual studio 2015\projects\force3_ia41\force3_ia41\release\main.obj
-c:\users\tgred\documents\visual studio 2015\projects\force3_ia41\release\force3_ia41.exe
-c:\users\tgred\documents\visual studio 2015\projects\force3_ia41\release\force3_ia41.ipdb
-c:\users\tgred\documents\visual studio 2015\projects\force3_ia41\release\force3_ia41.iobj
-c:\users\tgred\documents\visual studio 2015\projects\force3_ia41\release\force3_ia41.pdb
-c:\users\tgred\documents\visual studio 2015\projects\force3_ia41\force3_ia41\release\force3_ia41.res
-c:\users\tgred\documents\programmation\c++\force3_ia41\force3_ia41\release\main.obj
-c:\users\tgred\documents\programmation\c++\force3_ia41\force3_ia41\release\force3_ia41.res
-c:\users\tgred\documents\programmation\c++\force3_ia41\force3_ia41\release\vc140.pdb
-c:\users\tgred\documents\programmation\c++\force3_ia41\release\force3_ia41.pdb
-c:\users\tgred\documents\programmation\c++\force3_ia41\release\force3_ia41.exe
-c:\users\tgred\documents\programmation\c++\force3_ia41\force3_ia41\release\force3_ia41.tlog\cl.command.1.tlog
-c:\users\tgred\documents\programmation\c++\force3_ia41\force3_ia41\release\force3_ia41.tlog\cl.read.1.tlog
-c:\users\tgred\documents\programmation\c++\force3_ia41\force3_ia41\release\force3_ia41.tlog\cl.write.1.tlog
-c:\users\tgred\documents\programmation\c++\force3_ia41\force3_ia41\release\force3_ia41.tlog\link.command.1.tlog
-c:\users\tgred\documents\programmation\c++\force3_ia41\force3_ia41\release\force3_ia41.tlog\link.read.1.tlog
-c:\users\tgred\documents\programmation\c++\force3_ia41\force3_ia41\release\force3_ia41.tlog\link.write.1.tlog
-c:\users\tgred\documents\programmation\c++\force3_ia41\force3_ia41\release\force3_ia41.tlog\rc.command.1.tlog
-c:\users\tgred\documents\programmation\c++\force3_ia41\force3_ia41\release\force3_ia41.tlog\rc.read.1.tlog
-c:\users\tgred\documents\programmation\c++\force3_ia41\force3_ia41\release\force3_ia41.tlog\rc.write.1.tlog
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\vc140.pdb
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\textspritecomponent.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\spritecomponent.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\scene.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\iaprologscriptcomponent.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\prologhelper.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\playerprologscriptcomponent.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\pawn.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\menuscene.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\main.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\gamescene.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\gameobject.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\game.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\display.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\component.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\clickablecomponent.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\case.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\button.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\board.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\artificialintelligence.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\prologscriptcomponent.obj
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\force3_ia41.res
+c:\users\jeremy\documents\github\force3_ia41\release\force3_ia41.pdb
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\force3_ia41.tlog\cl.command.1.tlog
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\force3_ia41.tlog\cl.read.1.tlog
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\force3_ia41.tlog\cl.write.1.tlog
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\force3_ia41.tlog\link.command.1.tlog
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\force3_ia41.tlog\link.read.1.tlog
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\force3_ia41.tlog\link.write.1.tlog
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\force3_ia41.tlog\rc.command.1.tlog
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\force3_ia41.tlog\rc.read.1.tlog
+c:\users\jeremy\documents\github\force3_ia41\force3_ia41\release\force3_ia41.tlog\rc.write.1.tlog

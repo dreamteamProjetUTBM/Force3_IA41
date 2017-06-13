@@ -1,12 +1,11 @@
 #include "Game.h"
-
+#include <iostream>
 
 Game Game::m_instance = Game();	
 
 Game & Game::Instance()
 {
 	return m_instance;
-	// TODO: insérer une instruction return ici
 }
 
 Game::Game()
@@ -79,6 +78,7 @@ void Game::setCoupEnCours(bool value)
 void Game::setOldPosition(Case* value)
 {
 	std::vector<Case*> cases = getGameScene()->getBoard()->GetCases();
+
 	for (int i = 0; i<9; i++)
 	{
 		if (cases[i] == value)
@@ -99,5 +99,219 @@ void Game::setNewPosition(Case* value)
 GameScene * Game::getGameScene() const
 {
 	return _gameScene;
+}
+
+void Game::setGameScene(GameScene* value) {
+	_gameScene = value;
+}
+
+bool Game::verification_deplacement_cases()
+{
+	Board* board = getGameScene()->getBoard();
+	return isAdjaccent(board->GetCases());
+}
+
+bool Game::joue(int coup)
+{
+
+	if (coup == 1) //ajout pion
+	{
+		return false;
+	}
+	else if (coup == 2) //deplacement pion
+	{
+		return false;
+	}
+	else if (coup == 3) //deplacement case
+	{
+		bool rep = verification_deplacement_cases();
+		bool est_taquin_simple = false, est_taquin_double = false;
+
+		std::vector<int> taquin_old_position = taquin_simple.at(old_position);
+		for each (int index in taquin_old_position)
+		{
+			if (index == new_posistion)
+				est_taquin_simple = true;
+		}
+
+		taquin_old_position = taquin_double.at(old_position);
+		for each (int index in taquin_old_position)
+		{
+			if (index == new_posistion)
+				est_taquin_double = true;
+		}
+
+
+		std::cout << "Simple : " << est_taquin_simple << std::endl;
+		std::cout << "Double : " << est_taquin_double << std::endl;
+
+		setCoupEnCours(false);
+
+		return false;
+	}
+	return false;
+}
+
+
+
+std::vector<int> Game::getCasesIndex_AdjacentAndDiagonal(int index)
+{
+	std::vector<int> vec(8);
+	switch (index) {
+	case 0:
+		vec.push_back(1);
+		vec.push_back(3);
+		vec.push_back(4);
+		break;
+	case 1:
+		vec.push_back(0);
+		vec.push_back(2);
+		vec.push_back(3);
+		vec.push_back(4);
+		vec.push_back(5);
+		break;
+	case 2:
+		vec.push_back(1);
+		vec.push_back(4);
+		vec.push_back(5);
+		break;
+	case 3:
+		vec.push_back(0);
+		vec.push_back(1);
+		vec.push_back(4);
+		vec.push_back(6);
+		vec.push_back(7);
+		break;
+	case 4:
+		vec.push_back(0);
+		vec.push_back(1);
+		vec.push_back(2);
+		vec.push_back(3);
+		vec.push_back(5);
+		vec.push_back(6);
+		vec.push_back(7);
+		vec.push_back(8);
+		break;
+	case 5:
+		vec.push_back(1);
+		vec.push_back(2);
+		vec.push_back(4);
+		vec.push_back(7);
+		vec.push_back(8);
+		break;
+	case 6:
+		vec.push_back(3);
+		vec.push_back(4);
+		vec.push_back(7);
+		break;
+	case 7:
+		vec.push_back(3);
+		vec.push_back(4);
+		vec.push_back(5);
+		vec.push_back(6);
+		vec.push_back(8);
+		break;
+	case 8:
+		vec.push_back(4);
+		vec.push_back(5);
+		vec.push_back(7);
+		break;
+	}
+	return vec;
+}
+
+std::vector<int> Game::getCasesIndex_Adjacent(int index)
+{
+	std::vector<int> vec(8);
+	switch (index) {
+	case 0:
+		vec.push_back(1);
+		vec.push_back(2);
+		vec.push_back(3);
+		vec.push_back(6);
+		break;
+	case 1:
+		vec.push_back(0);
+		vec.push_back(2);
+		vec.push_back(4);
+		vec.push_back(7);
+		break;
+	case 2:
+		vec.push_back(0);
+		vec.push_back(1);
+		vec.push_back(5);
+		vec.push_back(6);
+		break;
+	case 3:
+		vec.push_back(0);
+		vec.push_back(4);
+		vec.push_back(5);
+		vec.push_back(6);
+		break;
+	case 4:
+		vec.push_back(1);
+		vec.push_back(3);
+		vec.push_back(5);
+		vec.push_back(7);
+		break;
+	case 5:
+		vec.push_back(2);
+		vec.push_back(3);
+		vec.push_back(4);
+		vec.push_back(8);
+		break;
+	case 6:
+		vec.push_back(0);
+		vec.push_back(3);
+		vec.push_back(7);
+		vec.push_back(8);
+		break;
+	case 7:
+		vec.push_back(1);
+		vec.push_back(4);
+		vec.push_back(6);
+		vec.push_back(8);
+		break;
+	case 8:
+		vec.push_back(2);
+		vec.push_back(5);
+		vec.push_back(6);
+		vec.push_back(7);
+		break;
+	}
+	return vec;
+}
+
+bool Game::isAdjaccentOrDiagonale(std::vector<Case*> cases)
+{
+	/*
+	for (int i = 0; i < 9; i++) {
+	if (cases[i]->getName() == old_position->getName()) {
+	std::vector<int> cases_adacentes = getCasesIndex_AdjacentAndDiagonal(i);
+
+	for each (int j in cases_adacentes)
+	{
+	if (cases[j]->getName() == new_posistion->getName())
+	return true;
+	}
+	}
+	}*/
+	return false;
+}
+
+bool Game::isAdjaccent(std::vector<Case*> cases)
+{/*
+ for (int i = 0; i < 9; i++) {
+ if (cases[i]->getName() == old_position->getName()) {
+ std::vector<int> cases_adacentes = getCasesIndex_Adjacent(i);
+
+ for each (int j in cases_adacentes)
+ {
+ if (cases[j]->getName() == new_posistion->getName())
+ return true;
+ }
+ }
+ }*/
+	return false;
 }
 

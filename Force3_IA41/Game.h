@@ -14,7 +14,7 @@ private:
 
 	int _score_J1;
 	int _score_J2;
-	bool coup_en_cours = false;
+	bool coup_en_cours;
 
 	int _whosTurnIs;
 	GameScene* _gameScene;
@@ -30,7 +30,7 @@ private:
 	std::vector<int> getCasesIndex_Adjacent(int index);
 	bool isAdjaccentOrDiagonale(std::vector<Case*> cases);
 	bool isAdjaccent(std::vector<Case*> cases);
-
+	bool Game::verification_deplacement_cases();
 
 public:
 	static Game& Instance();
@@ -53,7 +53,9 @@ public:
 	void setOldPosition(Case* value);
 	void setNewPosition(Case* value);
 
+	void setGameScene(GameScene* value);
 	GameScene* getGameScene() const;
+	bool Game::joue(int coup);
 
 };
 

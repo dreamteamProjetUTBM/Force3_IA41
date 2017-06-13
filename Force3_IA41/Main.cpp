@@ -6,6 +6,7 @@
 
 #include "MenuScene.h"
 #include "GameScene.h"
+#include "Game.h"
 
 int main(int argc, char* argv[]) 
 {
@@ -14,8 +15,8 @@ int main(int argc, char* argv[])
 	_putenv("SWI_HOME_DIR=C:\\Program Files (x86)\\swipl\\");
 
 	Scene* menu = new MenuScene();
-	Scene* game = new GameScene(argv[0]);
-
+	GameScene* game = new GameScene(argv[0]);
+	Game::Instance().setGameScene(game);
 
 	Display* disp = new Display(854, 480, "Force 3");
 	disp->addScene(menu);
