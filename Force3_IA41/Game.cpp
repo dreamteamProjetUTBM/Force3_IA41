@@ -124,6 +124,13 @@ bool Game::joue(int coup)
 	}
 	else if (coup == 3) //deplacement case
 	{
+		if (old_position == new_posistion)
+		{
+			std::cout << "Erreur : tu as choisi deux fois la meme position" << std::endl;
+			setCoupEnCours(false);
+			return false;
+		}
+
 		bool rep = verification_deplacement_cases();
 		bool est_taquin_simple = false, est_taquin_double = false;
 
@@ -141,10 +148,9 @@ bool Game::joue(int coup)
 				est_taquin_double = true;
 		}
 
-
-		std::cout << "Simple : " << est_taquin_simple << std::endl;
-		std::cout << "Double : " << est_taquin_double << std::endl;
-
+		if (est_taquin_simple) {
+			getGameScene()->getBoard()->switchCases(old_position, new_posistion);
+		}
 		setCoupEnCours(false);
 
 		return false;

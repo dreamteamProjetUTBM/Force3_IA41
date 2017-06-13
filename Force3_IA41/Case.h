@@ -29,6 +29,7 @@ public:
 	Pawn* Case::GetPawn();
 	void Case::SetPawn(Pawn* value);
 
+	void setPosition(int x, int y);
 	sf::Vector2f getPosition();
 	bool isEmpty();
 

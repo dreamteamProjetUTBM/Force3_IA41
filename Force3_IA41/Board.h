@@ -42,5 +42,7 @@ public:
 
 	std::vector<Case*> Board::GetCases();
 	void Board::SetCases(std::vector<Case*> value);
+
+	void switchCases(int index1, int index2);
 };
 

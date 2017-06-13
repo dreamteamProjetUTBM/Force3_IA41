@@ -44,7 +44,9 @@ void Pawn::SetPlayerID(int value) {
 
 void Pawn::setPosition(int x, int y)
 {
-	spriteComp->setPosition(x, y);
+	if(playerID > 0)
+		spriteComp->setPosition(x, y);
+
 }
 
 void Pawn::SetPawn(int playerID, int x, int y)

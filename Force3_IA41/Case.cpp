@@ -14,20 +14,17 @@ Case::Case(sf::String _name, sf::String _image, int x, int y, bool isempty) : Ga
 
 	clickComp = new ClickableComponent(COMP_CLICK, spriteComp);
 	clickComp->setLeftClickedCallback([this](SpriteComponent* sc) { 
-		std::cout << "case pressed" << std::endl; 
+		std::cout << "left click case pressed" << std::endl; 
 		//if (game.getPlayersTurn() == 1)
 		//{
 			if (!Game::Instance().getCoupEnCours()) {
 				std::cout << "Premier coup" << std::endl;
 				Game::Instance().setOldPosition(this);
-
-				//Ne change pas le coup..
 				Game::Instance().setCoupEnCours(true);
 			}
 			else
 			{
 				std::cout << "Second coup" << std::endl;
-
 				Game::Instance().setNewPosition(this);
 				Game::Instance().joue(3);
 			}
@@ -67,7 +64,7 @@ Case::Case(sf::String _name, sf::String _image, int x, int y, bool isempty) : Ga
 
 	});
 
-	clickComp->setReleasedCallback([](SpriteComponent* sc) { std::cout << "rel" << std::endl; });
+	clickComp->setReleasedCallback([this](SpriteComponent* sc) { std::cout << "rel" << std::endl; });
 	addComponent(clickComp);
 
 	
@@ -92,6 +89,13 @@ Pawn* Case::GetPawn() {
 
 void Case::SetPawn(Pawn* value) {
 	my_pawn = value;
+}
+
+void Case::setPosition(int x, int y)
+{
+	spriteComp->setPosition(sf::Vector2f(x, y));
+	if(!isEmpty())
+		my_pawn->setPosition(x, y);
 }
 
 sf::Vector2f Case::getPosition()

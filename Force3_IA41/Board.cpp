@@ -57,3 +57,19 @@ std::vector<Case*> Board::GetCases() {
 void Board::SetCases(std::vector<Case*> value) {
 	_cases = value;
 }
+
+void Board::switchCases(int index1, int index2)
+{
+	Case* tmp = _cases[index1];
+
+	int x1 = tmp->getPosition().x;
+	int y1 = tmp->getPosition().y;
+	int x2 = _cases[index2]->getPosition().x;
+	int y2 = _cases[index2]->getPosition().y;
+
+	_cases[index1] = _cases[index2];
+	_cases[index2] = tmp;
+
+	_cases[index1]->setPosition(x1, y1);
+	_cases[index2]->setPosition(x2, y2);
+}
