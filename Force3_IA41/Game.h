@@ -30,7 +30,8 @@ private:
 	std::vector<int> getCasesIndex_Adjacent(int index);
 	bool isAdjaccentOrDiagonale(std::vector<Case*> cases);
 	bool isAdjaccent(std::vector<Case*> cases);
-	bool Game::verification_deplacement_cases();
+	bool verification_deplacement_cases();
+	int getMiddleIndexOfTaquin2();
 
 public:
 	static Game& Instance();
@@ -56,6 +57,8 @@ public:
 	void setGameScene(GameScene* value);
 	GameScene* getGameScene() const;
 	bool Game::joue(int coup);
+
+
 
 };
 

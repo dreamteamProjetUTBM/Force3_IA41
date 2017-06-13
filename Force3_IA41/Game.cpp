@@ -26,7 +26,7 @@ Game::Game()
 	taquin_double.insert(std::pair<int, std::vector<int>>(0, std::vector<int> {2, 6}));
 	taquin_double.insert(std::pair<int, std::vector<int>>(1, std::vector<int> {7}));
 	taquin_double.insert(std::pair<int, std::vector<int>>(2, std::vector<int> {0, 8}));
-	taquin_double.insert(std::pair<int, std::vector<int>>(3, std::vector<int> {0, 4, 6}));
+	taquin_double.insert(std::pair<int, std::vector<int>>(3, std::vector<int> {5}));
 	taquin_double.insert(std::pair<int, std::vector<int>>(5, std::vector<int> {3}));
 	taquin_double.insert(std::pair<int, std::vector<int>>(6, std::vector<int> {0, 8}));
 	taquin_double.insert(std::pair<int, std::vector<int>>(7, std::vector<int> {1}));
@@ -112,6 +112,22 @@ bool Game::verification_deplacement_cases()
 	return isAdjaccent(board->GetCases());
 }
 
+int Game::getMiddleIndexOfTaquin2()
+{
+	if ((old_position == 0 && new_posistion == 6) || (old_position == 6 && new_posistion == 0))
+		return 3;
+	if ((old_position == 0 && new_posistion == 2) || (old_position == 2 && new_posistion == 0))
+		return 1;
+	if ((old_position == 1 && new_posistion == 7) || (old_position == 7 && new_posistion == 1))
+		return 4;
+	if ((old_position == 2 && new_posistion == 8) || (old_position == 8 && new_posistion == 2))
+		return 5;
+	if ((old_position == 3 && new_posistion == 5) || (old_position == 5 && new_posistion == 3))
+		return 4;
+	if ((old_position == 6 && new_posistion == 8) || (old_position == 8 && new_posistion == 6))
+		return 7;
+}
+
 bool Game::joue(int coup)
 {
 	if (coup == 1) //ajout pion
@@ -154,11 +170,17 @@ bool Game::joue(int coup)
 		if (est_taquin_simple) {
 			getGameScene()->getBoard()->switchCases(old_position, new_posistion);
 		}
+		if (est_taquin_double) {
+			int middle = getMiddleIndexOfTaquin2();
+			getGameScene()->getBoard()->switchCases(old_position, new_posistion);
+			getGameScene()->getBoard()->switchCases(old_position, middle);
+		}
 		//setCoupEnCours(false);
 		std::cout << "erreur" << std::endl;
 	}
 	return false;
 }
+
 
 
 
