@@ -5,29 +5,7 @@
 
 Pawn::Pawn(sf::String name) : GameObject(name)
 {
-
-	playerID = 0;
-
-	clickComp = new ClickableComponent(COMP_CLICK, spriteComp);
-	clickComp->setLeftClickedCallback([](SpriteComponent* sc) {
-		std::cout << "jeton pressed" << std::endl;
-
-		/*if(c'est ton tour)
-		{
-			if(clic droit){
-				if(pawn.playerID == getCurrentJoueur().playerID){
-					le joueur doit choisir une autre case pour déplacer le jeton
-				}
-			}
-		}
-		*/
-
-	});
-	clickComp->setRightClickCallback([](SpriteComponent* sc) { std::cout << "right click on pawn" << std::endl; });
-	clickComp->setReleasedCallback([](SpriteComponent* sc) { std::cout << "rel" << std::endl; });
-
-	//addComponent(clickComp);
-	
+	playerID = 0;	
 }
 
 Pawn::~Pawn()
@@ -62,6 +40,26 @@ void Pawn::SetPawn(int playerID, int x, int y)
 	spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, _image);
 	spriteComp->setPosition(x, y);
 	addComponent(spriteComp);
+
+	clickComp = new ClickableComponent(COMP_CLICK, spriteComp);
+	clickComp->setLeftClickedCallback([](SpriteComponent* sc) {
+		std::cout << "jeton pressed" << std::endl;
+
+		/*if(c'est ton tour)
+		{
+		if(clic droit){
+		if(pawn.playerID == getCurrentJoueur().playerID){
+		le joueur doit choisir une autre case pour déplacer le jeton
+		}
+		}
+		}
+		*/
+
+	});
+	clickComp->setRightClickCallback([](SpriteComponent* sc) { std::cout << "right click on pawn" << std::endl; });
+	clickComp->setReleasedCallback([](SpriteComponent* sc) { std::cout << "rel" << std::endl; });
+
+	addComponent(clickComp);
 
 }
 
