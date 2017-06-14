@@ -29,9 +29,6 @@ private:
 
 	std::vector<int> getCasesIndex_AdjacentAndDiagonal(int index);
 	std::vector<int> getCasesIndex_Adjacent(int index);
-	bool isAdjaccentOrDiagonale(std::vector<Case*> cases);
-	bool isAdjaccent(std::vector<Case*> cases);
-	bool verification_deplacement_cases();
 	int getMiddleIndexOfTaquin2();
 
 public:

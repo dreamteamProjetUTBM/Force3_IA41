@@ -127,12 +127,6 @@ void Game::setGameScene(GameScene* value) {
 	_gameScene = value;
 }
 
-bool Game::verification_deplacement_cases()
-{
-	Board* board = getGameScene()->getBoard();
-	return isAdjaccent(board->GetCases());
-}
-
 int Game::getMiddleIndexOfTaquin2()
 {
 	if ((old_position == 0 && new_posistion == 6) || (old_position == 6 && new_posistion == 0))
@@ -198,7 +192,6 @@ bool Game::joue(int coup)
 				return false;
 			}
 
-			bool rep = verification_deplacement_cases();
 			bool est_taquin_simple = false, est_taquin_double = false;
 
 			std::vector<int> taquin_old_position = taquin_simple.at(old_position);
@@ -361,37 +354,3 @@ std::vector<int> Game::getCasesIndex_Adjacent(int index)
 	}
 	return vec;
 }
-
-bool Game::isAdjaccentOrDiagonale(std::vector<Case*> cases)
-{
-	/*
-	for (int i = 0; i < 9; i++) {
-	if (cases[i]->getName() == old_position->getName()) {
-	std::vector<int> cases_adacentes = getCasesIndex_AdjacentAndDiagonal(i);
-
-	for each (int j in cases_adacentes)
-	{
-	if (cases[j]->getName() == new_posistion->getName())
-	return true;
-	}
-	}
-	}*/
-	return false;
-}
-
-bool Game::isAdjaccent(std::vector<Case*> cases)
-{/*
- for (int i = 0; i < 9; i++) {
- if (cases[i]->getName() == old_position->getName()) {
- std::vector<int> cases_adacentes = getCasesIndex_Adjacent(i);
-
- for each (int j in cases_adacentes)
- {
- if (cases[j]->getName() == new_posistion->getName())
- return true;
- }
- }
- }*/
-	return false;
-}
-
