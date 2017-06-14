@@ -1,9 +1,25 @@
 ﻿  Board.cpp
-Board.cpp(21): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+Board.cpp(1): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+Board.cpp(65): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+Board.cpp(66): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+Board.cpp(67): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+Board.cpp(68): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+  Case.cpp
+Case.cpp(11): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+Case.cpp(42): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+  Game.cpp
+Game.cpp(154): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  GameScene.cpp
+  Main.cpp
+  MenuScene.cpp
+  Pawn.cpp
+Pawn.cpp(26): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+Pawn.cpp(41): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
   Génération de code en cours
-  1 of 1131 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+c:\users\thomas gredin\documents\programmation\cpp\force3\force3_ia41\game.cpp(144): warning C4715: 'Game::getMiddleIndexOfTaquin2' : les chemins de contrôle ne retournent pas tous une valeur
+  862 of 1649 functions (52.3%) were compiled, the rest were copied from previous compilation.
+    733 functions were new in current compilation
+    193 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
   Force3_IA41.vcxproj -> C:\Users\Thomas Gredin\Documents\Programmation\Cpp\Force3\Release\Force3_IA41.exe
   Force3_IA41.vcxproj -> C:\Users\Thomas Gredin\Documents\Programmation\Cpp\Force3\Release\Force3_IA41.pdb (Full PDB)

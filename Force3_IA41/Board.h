@@ -31,16 +31,16 @@ public:
 	Board();
 	~Board();
 
-	int Board::GetSize();
+	int Board::GetSize() const;
 	void Board::SetSize(int value);
 
-	int Board::GetPawnsPlayer1();
+	int Board::GetPawnsPlayer1() const;
 	void Board::SetPawnsPlayer1(int value);
 
-	int Board::GetPawnsPlayer2();
+	int Board::GetPawnsPlayer2() const;
 	void Board::SetPawnsPlayer2(int value);
 
-	std::vector<Case*> Board::GetCases();
+	std::vector<Case*> Board::GetCases() const;
 	void Board::SetCases(std::vector<Case*> value);
 
 	void switchCases(int index1, int index2);
