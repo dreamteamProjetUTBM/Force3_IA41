@@ -75,6 +75,7 @@ void Game::setCoupEnCours(bool value)
 	coup_en_cours = value;
 }
 
+
 void Game::setOldPosition(Case* value)
 {
 	std::vector<Case*> cases = getGameScene()->getBoard()->GetCases();
@@ -92,6 +93,26 @@ void Game::setNewPosition(Case* value)
 	for (int i = 0; i<9; i++)
 	{
 		if (cases[i] == value)
+			new_posistion = i;
+	}
+}
+
+void Game::setOldPositionByPawn(Pawn * value)
+{
+	std::vector<Case*> cases = getGameScene()->getBoard()->GetCases();
+	for (int i = 0; i<9; i++)
+	{
+		if (cases[i]->GetPawn() == value)
+			old_position = i;
+	}
+}
+
+void Game::setNewPositionByPawn(Pawn * value)
+{
+	std::vector<Case*> cases = getGameScene()->getBoard()->GetCases();
+	for (int i = 0; i<9; i++)
+	{
+		if (cases[i]->GetPawn() == value)
 			new_posistion = i;
 	}
 }
@@ -137,13 +158,10 @@ bool Game::joue(int coup)
 		{
 			//Joueur 1 sera toujours l'humain
 			target->GetPawn()->SetPawn(1, target->getPosition().x, target->getPosition().y);
+
 		}
 	}
-	else if (coup == 2) //deplacement pion
-	{
-		
-	}
-	else if (coup == 3) //deplacement case
+	else if (coup == 3) //deplacement case ou pion
 	{
 		if (old_position == new_posistion)
 		{
@@ -152,36 +170,63 @@ bool Game::joue(int coup)
 			return false;
 		}
 
-		bool rep = verification_deplacement_cases();
-		bool est_taquin_simple = false, est_taquin_double = false;
+		std::vector<Case*> cases = getGameScene()->getBoard()->GetCases();
 
-		std::vector<int> taquin_old_position = taquin_simple.at(old_position);
-
-		for each (int index in taquin_old_position)
+		if ((cases[old_position]->GetPawn()->GetPlayerID() > 0 && cases[new_posistion]->GetPawn()->GetPlayerID() == 0 && !cases[new_posistion]->isEmpty()) ||
+			(cases[new_posistion]->GetPawn()->GetPlayerID() > 0 && cases[old_position]->GetPawn()->GetPlayerID() == 0 && !cases[old_position]->isEmpty()))
 		{
-			if (index == new_posistion)
-				est_taquin_simple = true;
+			std::cout << "Deplacement Pion" << std::endl;
+			//deplacement du pion
+			std::vector<int> posibilities = getCasesIndex_AdjacentAndDiagonal(old_position);
+			bool is_correct = false;
+			for each (int posibility in posibilities)
+			{
+				if (posibility == new_posistion)
+					is_correct = true;
+			}
+
+			if (is_correct)
+				getGameScene()->getBoard()->switchCases(old_position, new_posistion);
 		}
 
-		if (old_position != 4) {
-			taquin_old_position = taquin_double.at(old_position);
+		else {
+			std::cout << "Deplacement Case" << std::endl;
 
+			if (!cases[old_position]->isEmpty() && !cases[new_posistion]->isEmpty()) {
+				std::cout << "Erreur : deplacement incorrect" << std::endl;
+				setCoupEnCours(false);
+				return false;
+			}
+
+			bool rep = verification_deplacement_cases();
+			bool est_taquin_simple = false, est_taquin_double = false;
+
+			std::vector<int> taquin_old_position = taquin_simple.at(old_position);
 			for each (int index in taquin_old_position)
 			{
 				if (index == new_posistion)
-					est_taquin_double = true;
+					est_taquin_simple = true;
 			}
+
+			if (old_position != 4 && new_posistion != 4) {
+				taquin_old_position = taquin_double.at(old_position);
+
+				for each (int index in taquin_old_position)
+				{
+					if (index == new_posistion)
+						est_taquin_double = true;
+				}
+			}
+			if (est_taquin_simple) {
+				getGameScene()->getBoard()->switchCases(old_position, new_posistion);
+			}
+			if (est_taquin_double) {
+				int middle = getMiddleIndexOfTaquin2();
+				getGameScene()->getBoard()->switchCases(old_position, new_posistion);
+				getGameScene()->getBoard()->switchCases(old_position, middle);
+			}
+			//std::cout << "erreur" << std::endl;
 		}
-		if (est_taquin_simple) {
-			getGameScene()->getBoard()->switchCases(old_position, new_posistion);
-		}
-		if (est_taquin_double) {
-			int middle = getMiddleIndexOfTaquin2();
-			getGameScene()->getBoard()->switchCases(old_position, new_posistion);
-			getGameScene()->getBoard()->switchCases(old_position, middle);
-		}
-		//setCoupEnCours(false);
-		std::cout << "erreur" << std::endl;
 	}
 	return false;
 }

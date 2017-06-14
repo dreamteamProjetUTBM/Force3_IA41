@@ -58,18 +58,18 @@ bool Case::isEmpty()
 void Case::enableClick()
 {
 	clickComp->setLeftClickedCallback([this](SpriteComponent* sc) {
-		//std::cout << "left click case pressed" << std::endl;
+		//std::cout << "LC Case" << std::endl;
 		//if (game.getPlayersTurn() == 1)
 		//{
 		disableClick();
 		if (!Game::Instance().getCoupEnCours()) {
-			//std::cout << "Premier coup" << std::endl;
+			std::cout << "Premier coup" << std::endl;
 			Game::Instance().setOldPosition(this);
 			Game::Instance().setCoupEnCours(true);
 		}
 		else
 		{
-			//std::cout << "Second coup" << std::endl;
+			std::cout << "Second coup" << std::endl;
 			Game::Instance().setNewPosition(this);
 			Game::Instance().joue(3);
 			Game::Instance().setCoupEnCours(false);
@@ -79,7 +79,7 @@ void Case::enableClick()
 	});
 
 	clickComp->setRightClickCallback([this](SpriteComponent* sc) {
-		//std::cout << "right click case pressed" << std::endl;
+		//std::cout << "RG Case" << std::endl;
 		if (isEmpty()) {
 			std::cout << "You can't add a pawn here" << std::endl;
 			return;
@@ -87,13 +87,6 @@ void Case::enableClick()
 		Game::Instance().setOldPosition(this);
 		Game::Instance().joue(1);
 
-
-		//SANS CONDITIONS POUR TEST
-		//if (this->GetPawn()->GetPlayerID() == 0) //&& NbPions du joueur < 3) //On peut ajouter le pion
-		//{
-		//	//Joueur 1 sera toujours l'humain
-		//	this->GetPawn()->SetPawn(1, this->getPosition().x, this->getPosition().y);
-		//}
 	});
 
 	clickComp->setReleasedCallback([this](SpriteComponent* sc) {  });
@@ -101,9 +94,15 @@ void Case::enableClick()
 
 void Case::disableClick()
 {
-	clickComp->setLeftClickedCallback([this](SpriteComponent* sc) { std::cout << "left click disabled" << std::endl; });
-	clickComp->setRightClickCallback([this](SpriteComponent* sc) { std::cout << "right click disabled" << std::endl; });
-	clickComp->setReleasedCallback([this](SpriteComponent* sc) { std::cout << "released click disabled" << std::endl; });
+	clickComp->setLeftClickedCallback([this](SpriteComponent* sc) { 
+		//std::cout << "left click disabled" << std::endl; 
+	});
+	clickComp->setRightClickCallback([this](SpriteComponent* sc) {
+		//std::cout << "right click disabled" << std::endl;
+	});
+	clickComp->setReleasedCallback([this](SpriteComponent* sc) {
+		//std::cout << "released click disabled" << std::endl; 
+	});
 
 }
 

@@ -1,6 +1,7 @@
 #pragma once
 #include "GameScene.h"
 #include "Board.h"
+
 /*
 	Classe Game
 
@@ -53,6 +54,8 @@ public:
 
 	void setOldPosition(Case* value);
 	void setNewPosition(Case* value);
+	void setOldPositionByPawn(Pawn* value);
+	void setNewPositionByPawn(Pawn* value);
 
 	void setGameScene(GameScene* value);
 	GameScene* getGameScene() const;
