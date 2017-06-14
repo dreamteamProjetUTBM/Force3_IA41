@@ -216,7 +216,7 @@ bool Game::joue(int coup)
 			if (est_taquin_double) {
 				int middle = getMiddleIndexOfTaquin2();
 				getGameScene()->getBoard()->switchCases(old_position, new_posistion);
-				getGameScene()->getBoard()->switchCases(old_position, middle);
+				getGameScene()->getBoard()->switchCases(new_posistion, middle);
 			}
 			//std::cout << "erreur" << std::endl;
 		}
