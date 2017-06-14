@@ -3,6 +3,12 @@
 #include "Component.h"
 #include "PrologHelper.h"
 
+/* CONSTANTES */
+const int PAWN_PLACEMENT	= 0;
+const int PAWN_MOVE			= 1;
+const int CASE_SINGLE_MOVE	= 2;
+const int CASE_DOUBLE_MOVE	= 3;
+
 /*
  * Classe PlayerPrologScriptComponent
  * 
@@ -24,7 +30,9 @@ public:
 	void update(Display* _disp, sf::Event& _event) override;
 	void draw(Display* _disp) override;
 
-	bool previousAction();
+	/* Permet de vérifier que l'action suivante n'est pas la même que la précédente */
+	bool previousAction(/*P, */ int _pawn_id, int _prev_action[], int _next_action);
 	void play();
-	void victory();
+	/* Regarde si les pions d'un joueur ne sont pas dans une configuration de victoire */
+	bool victory(int _pawn_id);
 };

@@ -2,6 +2,9 @@
 
 #include "GameObject.h"
 
+/* CONSTANTES */
+const int PAWN_ID_PLAYER = 1;
+
 /*
  * Classe Player
  * 

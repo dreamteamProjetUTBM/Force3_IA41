@@ -4,7 +4,10 @@ PlayerPrologScriptComponent::PlayerPrologScriptComponent(sf::String _name, char*
 {
 	plHelper = new PrologHelper(arg0);
 	
-	/* Chargement de tous les prédicats */
+	/* 
+	 * Chargement de tous les prédicats 
+	 * Les prédicats commentés sont utilisés uniquement pour PlayerIA
+	 */
 	plHelper->loadPredicat("coup_prec", 4);
 	//plHelper->loadPredicat("action_ia", 3);
 	//plHelper->loadPredicat("max", 6);
@@ -32,4 +35,15 @@ void PlayerPrologScriptComponent::update(Display* _disp, sf::Event& _event)
 
 void PlayerPrologScriptComponent::draw(Display* _disp)
 {
+}
+
+bool PlayerPrologScriptComponent::victory(int _pawn_id)
+{
+	term_t arg = PL_new_term_ref();
+	PL_put_integer(arg, _pawn_id);
+
+	if (plHelper->callPredicat("victoire", arg))
+		return true;
+
+	return false;
 }
