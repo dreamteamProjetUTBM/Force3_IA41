@@ -31,18 +31,20 @@ public:
 	Board();
 	~Board();
 
-	int Board::GetSize() const;
-	void Board::SetSize(int value);
+	int GetSize() const;
+	void SetSize(int value);
 
-	int Board::GetPawnsPlayer1() const;
-	void Board::SetPawnsPlayer1(int value);
+	int GetPawnsPlayer1() const;
+	void SetPawnsPlayer1(int value);
 
-	int Board::GetPawnsPlayer2() const;
-	void Board::SetPawnsPlayer2(int value);
+	int GetPawnsPlayer2() const;
+	void SetPawnsPlayer2(int value);
 
-	std::vector<Case*> Board::GetCases() const;
-	void Board::SetCases(std::vector<Case*> value);
+	std::vector<Case*> GetCases() const;
+	void SetCases(std::vector<Case*> value);
 
 	void switchCases(int index1, int index2);
+
+	std::vector<int> getPrologBoard();
 };
 

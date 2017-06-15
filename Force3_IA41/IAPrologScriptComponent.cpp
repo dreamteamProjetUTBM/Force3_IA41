@@ -3,6 +3,9 @@
 IAPrologScriptComponent::IAPrologScriptComponent(sf::String _name, char* arg0) : Component(_name)
 {
 	plHelper = new PrologHelper(arg0);
+
+	/* Prédicat pour trouver la meilleur solution */
+	plHelper->loadPredicat("best_combination", 3);
 }
 
 IAPrologScriptComponent::~IAPrologScriptComponent()

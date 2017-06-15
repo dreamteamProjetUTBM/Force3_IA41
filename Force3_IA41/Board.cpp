@@ -83,3 +83,22 @@ void Board::switchCases(int index1, int index2)
 	_cases[index1]->enableClick();
 	_cases[index2]->enableClick();
 }
+
+std::vector<int> Board::getPrologBoard()
+{
+	std::vector<int> board;
+
+	for(auto c : _cases)
+	{
+		if (c->isEmpty())
+		{
+			board.push_back(-1);
+		}
+		else
+		{
+			board.push_back(c->GetPawn()->GetPlayerID());
+		}
+	}
+
+	return board;
+}
