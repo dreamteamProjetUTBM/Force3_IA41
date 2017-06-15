@@ -10,8 +10,8 @@ Game & Game::Instance()
 
 Game::Game()
 {
-	SetScoreJ1(0);
-	SetScoreJ2(0);
+	setScoreJ1(0);
+	setScoreJ2(0);
 
 	taquin_simple.insert(std::pair<int, std::vector<int>>(0, std::vector<int> {1, 3}));
 	taquin_simple.insert(std::pair<int, std::vector<int>>(1, std::vector<int> {0, 2, 4}));
