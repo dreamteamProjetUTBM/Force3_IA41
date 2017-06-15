@@ -29,7 +29,7 @@ private:
 
 	std::vector<int> getCasesIndex_AdjacentAndDiagonal(int index);
 	std::vector<int> getCasesIndex_Adjacent(int index);
-	int getMiddleIndexOfTaquin2();
+	int getMiddleIndexOfTaquin2(int _old_position, int _new_position);
 
 public:
 	static Game& Instance();

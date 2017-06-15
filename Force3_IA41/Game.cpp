@@ -127,19 +127,19 @@ void Game::setGameScene(GameScene* value) {
 	_gameScene = value;
 }
 
-int Game::getMiddleIndexOfTaquin2()
+int Game::getMiddleIndexOfTaquin2(int _old_position, int _new_position)
 {
-	if ((old_position == 0 && new_posistion == 6) || (old_position == 6 && new_posistion == 0))
+	if ((_old_position == 0 && _new_position == 6) || (_old_position == 6 && _new_position == 0))
 		return 3;
-	if ((old_position == 0 && new_posistion == 2) || (old_position == 2 && new_posistion == 0))
+	if ((_old_position == 0 && _new_position == 2) || (_old_position == 2 && _new_position == 0))
 		return 1;
-	if ((old_position == 1 && new_posistion == 7) || (old_position == 7 && new_posistion == 1))
+	if ((_old_position == 1 && _new_position == 7) || (_old_position == 7 && _new_position == 1))
 		return 4;
-	if ((old_position == 2 && new_posistion == 8) || (old_position == 8 && new_posistion == 2))
+	if ((_old_position == 2 && _new_position == 8) || (_old_position == 8 && _new_position == 2))
 		return 5;
-	if ((old_position == 3 && new_posistion == 5) || (old_position == 5 && new_posistion == 3))
+	if ((_old_position == 3 && _new_position == 5) || (_old_position == 5 && _new_position == 3))
 		return 4;
-	if ((old_position == 6 && new_posistion == 8) || (old_position == 8 && new_posistion == 6))
+	if ((_old_position == 6 && _new_position == 8) || (_old_position == 8 && _new_position == 6))
 		return 7;
 }
 
@@ -214,7 +214,7 @@ bool Game::joue(int coup)
 				getGameScene()->getBoard()->switchCases(old_position, new_posistion);
 			}
 			if (est_taquin_double) {
-				int middle = getMiddleIndexOfTaquin2();
+				int middle = getMiddleIndexOfTaquin2(old_position,new_posistion);
 				getGameScene()->getBoard()->switchCases(old_position, new_posistion);
 				getGameScene()->getBoard()->switchCases(new_posistion, middle);
 			}
@@ -226,6 +226,29 @@ bool Game::joue(int coup)
 
 bool Game::joueIA(int _old_position, int _new_position, int _coup)
 {
+	Case* first_case;
+
+	switch (_coup) {
+	case 0: //ajout pion
+		first_case = getGameScene()->getBoard()->GetCases()[_old_position];
+		first_case->GetPawn()->SetPawn(2, first_case->getPosition().x, first_case->getPosition().y);
+		break;
+	case 1: //deplacement d'un pion
+		getGameScene()->getBoard()->switchCases(_old_position, _new_position);
+		break;
+	case 2: //deplacement d'une case
+		getGameScene()->getBoard()->switchCases(_old_position, _new_position);
+		break;
+	case 3:
+		int middle = getMiddleIndexOfTaquin2(old_position, new_posistion);
+		getGameScene()->getBoard()->switchCases(old_position, new_posistion);
+		getGameScene()->getBoard()->switchCases(new_posistion, middle);
+		break;
+	}
+
+	//on vérifie la victoire
+	//on change le tour du joueur
+
 	return false;
 }
 
