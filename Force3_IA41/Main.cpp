@@ -8,11 +8,29 @@
 #include "GameScene.h"
 #include "Game.h"
 
+#include "IAPrologScriptComponent.h"
+
 int main(int argc, char* argv[]) 
 {
 	/* Permet de mettre en place l'environnement !!! Obligatoire sinon ça ne
 	 fonctionne pas du tout !!!*/
 	_putenv("SWI_HOME_DIR=C:\\Program Files (x86)\\swipl\\");
+
+	IAPrologScriptComponent* s = new IAPrologScriptComponent("test", argv[0]);
+	std::vector<int> b;
+	b.push_back(0);
+	b.push_back(0);
+	b.push_back(0);
+
+	b.push_back(0);
+	b.push_back(-1);
+	b.push_back(0);
+
+	b.push_back(0);
+	b.push_back(0);
+	b.push_back(0);
+
+	s->bestCombination(b);
 
 	Scene* menu = new MenuScene();
 	GameScene* game = new GameScene(argv[0]);
