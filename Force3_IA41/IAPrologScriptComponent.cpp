@@ -45,16 +45,19 @@ std::vector<int> IAPrologScriptComponent::bestCombination(std::vector<int> _boar
 
 	plHelper->callPredicat("best_combination", b);
 
+	term_t head = PL_new_term_ref();
 	term_t mm = PL_copy_term_ref(m);
-
-	/* Récupération du résultat */
-	while (PL_get_list(mm, m, element))
+	int n = 0;
+	while (PL_get_list(mm, head, mm))
 	{
 		int val;
-		PL_get_integer(element, &val);
+		PL_get_integer(head, &val);
 
 		std::cout << val << std::endl;
+		n++;
 	}
+
+	std::cout << n << std::endl;
 
 	return std::vector<int>();
 }

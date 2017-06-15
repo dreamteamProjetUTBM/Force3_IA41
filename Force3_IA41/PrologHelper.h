@@ -33,5 +33,10 @@ public:
 	bool loadPredicat(sf::String _pred, int _nbparam);
 	/* Permet d'appeler un predicat dans le cas ou il à été chargé auparavant */
 	bool callPredicat(sf::String _pred, term_t _term);
+
+	qid_t openQuery(sf::String _pred, term_t _term);
+	void closeQuery(qid_t _query_id);
+
+	bool getNextSolution(qid_t _query_id);
 };
 
