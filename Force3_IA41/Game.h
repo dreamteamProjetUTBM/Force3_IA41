@@ -56,7 +56,8 @@ public:
 
 	void setGameScene(GameScene* value);
 	GameScene* getGameScene() const;
-	bool Game::joue(int coup);
+	bool joue(int coup);
+	bool joueIA(int _old_position, int _new_position, int _coup);
 
 
 
