@@ -224,6 +224,11 @@ bool Game::joue(int coup)
 	return false;
 }
 
+bool Game::joueIA(int _old_position, int _new_position, int _coup)
+{
+	return false;
+}
+
 
 
 
