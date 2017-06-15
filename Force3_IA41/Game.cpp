@@ -39,19 +39,19 @@ Game::~Game()
 }
 
 
-int Game::GetScoreJ1() const
+int Game::getScoreJ1() const
 {
 	return _score_J1;
 }
-void Game::SetScoreJ1(int value) {
+void Game::setScoreJ1(int value) {
 	_score_J1 = value;
 }
 
-int Game::GetScoreJ2() const
+int Game::getScoreJ2() const
 {
 	return _score_J2;
 }
-void Game::SetScoreJ2(int value) {
+void Game::setScoreJ2(int value) {
 	_score_J2 = value;
 }
 

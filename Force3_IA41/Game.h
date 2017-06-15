@@ -37,14 +37,14 @@ public:
 	Game();
 	~Game();
 
-	int Game::GetScoreJ1() const;
-	void Game::SetScoreJ1(int value);
+	int getScoreJ1() const;
+	void setScoreJ1(int value);
 
-	int Game::GetScoreJ2() const;
-	void Game::SetScoreJ2(int value);
+	int getScoreJ2() const;
+	void setScoreJ2(int value);
 
-	int Game::getPlayersTurn() const;
-	void Game::setPlayersTurn(int value);
+	int getPlayersTurn() const;
+	void setPlayersTurn(int value);
 
 	bool getCoupEnCours();
 	void setCoupEnCours(bool value);
