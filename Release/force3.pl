@@ -3,17 +3,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Conditions de victoires du Joueur J
-% LIGNES
+% J : Joueur
 win([J,J,J,_,_,_,_,_,_], J).
 win([_,_,_,J,J,J,_,_,_], J).
 win([_,_,_,_,_,_,J,J,J], J).
-
-% COLONNES
 win([J,_,_,J,_,_,J,_,_], J).
 win([_,J,_,_,J,_,_,J,_], J).
 win([_,_,J,_,_,J,_,_,J], J).
-
-% DIAGONALES
 win([J,_,_,_,J,_,_,_,J], J).
 win([_,_,J,_,J,_,J,_,_], J).
 
@@ -51,8 +47,9 @@ taquin2(8,P1,P2):- P1=2, P2=5; P1=6, P2=7; P1=5, P2=2; P1=7, P2=6.
 %         Général           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%	Calcule le nombre de pion qu’un joueur a posé sur le plateau 	%
-nb_pions([],J,0).
+%	Calcule le nombre de pion qu’un joueur a posé sur le plateau
+% premier
+nb_pions([],_,0).
 nb_pions([J|R],J,N):- nb_pions(R,J,N1), N is N1+1, !.
 nb_pions([_|R],J,N):- nb_pions(R,J,N).
 
@@ -96,6 +93,14 @@ play(P, J, [C1,C2,3], R) :-
         play(P, J, [C0,C2,2], X),
         play(X, J, [C1,C0,2], R).
 
+
+% Vérifie l action du joueur
+%   P : plateau
+%   J : joueur
+%   A : position de départ
+%   B : postion d arrivé
+%   C : coup joué (0 = pose d un pion, 1 = deplacement pion, 2 = deplacement d une case, 3 = deplacement de deux cases) 
+is_possible(P,J,[A,B,C]):- action(P,J,[A,B,C]).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
