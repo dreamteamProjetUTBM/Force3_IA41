@@ -112,6 +112,12 @@ setval([X|R],[X|P],J,C) :- C > 0, Y is C-1,setval(R,P,J,Y).
 
 %Méthode à appelé dans le cpp 
 % Trouve le meilleur coup
+%   P : plateau (exemple : [1,1,0,0,-1,0,0,0,0])
+%   J : joueur (1 ou 2)
+%   M : [A,B,C]     
+%       A : position de départ
+%       B : position d arrivé   
+%       C : coup joué (0 = pose d un pion, 1 = deplacement pion, 2 = deplacement d une case, 3 = deplacement de deux cases) 
 best_combination(P,J,M) :- findall(C,action_ia(P,J,C),R), is_the_best(P,R,J,-1001,_,_,M).
 
 
