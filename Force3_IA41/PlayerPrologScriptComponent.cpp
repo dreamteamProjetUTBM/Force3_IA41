@@ -4,20 +4,7 @@ PlayerPrologScriptComponent::PlayerPrologScriptComponent(sf::String _name, char*
 {
 	plHelper = new PrologHelper(arg0);
 	
-	/* 
-	 * Chargement de tous les prédicats 
-	 * Les prédicats commentés sont utilisés uniquement pour PlayerIA
-	 */
-	plHelper->loadPredicat("coup_prec", 4);
-	//plHelper->loadPredicat("action_ia", 3);
-	//plHelper->loadPredicat("max", 6);
-	plHelper->loadPredicat("jouer", 4);
-	plHelper->loadPredicat("victoire", 2);
-	//plHelper->loadPredicat("meilleure", 3);
-
-	/*
-	 * Pour parcourir liste : http://www.swi-prolog.org/pldoc/man?section=foreign-read-list
-	 */
+	plHelper->loadPredicat("is_possible", 3);
 }
 
 PlayerPrologScriptComponent::~PlayerPrologScriptComponent()
@@ -37,13 +24,14 @@ void PlayerPrologScriptComponent::draw(Display* _disp)
 {
 }
 
-bool PlayerPrologScriptComponent::victory(int _pawn_id)
+bool PlayerPrologScriptComponent::isPossible(std::vector<int> _board, std::vector<int> _move)
 {
-	term_t arg = PL_new_term_ref();
-	PL_put_integer(arg, _pawn_id);
+	term_t p = PL_new_term_refs(3);
+	term_t j = p + 1;
+	term_t m = p + 2;
 
-	if (plHelper->callPredicat("victoire", arg))
-		return true;
+	PrologHelper::setList(p, _board);
+	PL_put_integer(j, 1);
 
-	return false;
+	return plHelper->callPredicat("is_possible", p);
 }

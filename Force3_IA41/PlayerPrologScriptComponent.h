@@ -30,9 +30,5 @@ public:
 	void update(Display* _disp, sf::Event& _event) override;
 	void draw(Display* _disp) override;
 
-	/* Permet de vérifier que l'action suivante n'est pas la même que la précédente */
-	bool previousAction(/*P, */ int _pawn_id, int _prev_action[], int _next_action);
-	void play();
-	/* Regarde si les pions d'un joueur ne sont pas dans une configuration de victoire */
-	bool victory(int _pawn_id);
+	bool isPossible(std::vector<int> _board, std::vector<int> _move);
 };
