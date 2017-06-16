@@ -37,26 +37,11 @@ std::vector<int> IAPrologScriptComponent::bestCombination(std::vector<int> _boar
 	term_t p = b + 1;
 	term_t m = b + 2;
 
-	term_t element = PL_new_term_ref();
-
-	for (int i = 0; i < _board.size(); i++)
-	{
-		PL_put_integer(element, _board[i]);
-		PL_cons_list(b, b, element);
-	}
+	PrologHelper::setList(b, _board);
 
 	PL_put_integer(p, 2);
 
 	plHelper->callPredicat("best_combination", b);
 
-	term_t tail = PL_new_term_ref();
-	while (PL_get_list(m, m, tail))
-	{
-		int val;
-		PL_get_integer(tail, &val);
-
-		std::cout << val << std::endl;
-	}
-
-	return std::vector<int>();
+	return PrologHelper::getList(m);
 }

@@ -63,3 +63,40 @@ bool PrologHelper::getNextSolution(qid_t _query_id)
 {
 	return PL_next_solution(_query_id);
 }
+
+/*STATIC*/
+void PrologHelper::setList(term_t& _list, std::vector<int> _values)
+{
+	term_t element = PL_new_term_ref();
+	PL_put_nil(_list);
+	std::vector<int> inverse_values;
+
+	for(int i = _values.size() - 1; i >= 0; i--)
+	{
+		inverse_values.push_back(_values[i]);
+	}
+
+	for (int i = 0; i < inverse_values.size(); i++)
+	{
+		PL_put_integer(element, inverse_values[i]);
+		PL_cons_list(_list, element, _list);
+	}
+}
+
+/*STATIC*/
+std::vector<int> PrologHelper::getList(term_t& _list)
+{
+	std::vector<int> result;
+
+	term_t head = PL_new_term_ref();
+	term_t list = PL_copy_term_ref(_list);
+	while (PL_get_list(list, head, list))
+	{
+		int val;
+		PL_get_integer(head, &val);
+		result.push_back(val);
+	}
+
+	return result;
+}
+

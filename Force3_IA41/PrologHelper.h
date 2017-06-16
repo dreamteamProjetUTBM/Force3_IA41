@@ -3,6 +3,7 @@
 #include <map>
 #include <SWI-cpp.h>
 #include <SFML\System\String.hpp>
+#include <vector>
 
 /* CONSTANTES */
 #define PRED_CONSULT "consult"
@@ -38,5 +39,13 @@ public:
 	void closeQuery(qid_t _query_id);
 
 	bool getNextSolution(qid_t _query_id);
+
+	/*
+	 * METHODES STATIQUES
+	 */
+	/* Permet d'affecter les valeurs (integer) d'un vecteur dans une liste pl */
+	static void setList(term_t& _list, std::vector<int> _values);
+	/* Permet de récupérer les valeurs d'une liste pl dans un vecteur */
+	static std::vector<int> getList(term_t& _list);
 };
 

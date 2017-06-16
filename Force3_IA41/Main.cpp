@@ -18,20 +18,25 @@ int main(int argc, char* argv[])
 
 	IAPrologScriptComponent* s = new IAPrologScriptComponent("test", argv[0]);
 	std::vector<int> b;
+	b.push_back(1);
 	b.push_back(0);
-	b.push_back(0);
-	b.push_back(0);
+	b.push_back(1);
 
 	b.push_back(0);
 	b.push_back(-1);
 	b.push_back(0);
 
+	b.push_back(2);
 	b.push_back(0);
-	b.push_back(0);
-	b.push_back(0);
+	b.push_back(2);
 
-	s->bestCombination(b);
+	auto v = s->bestCombination(b);
 	delete s;
+
+	for(int val : v)
+	{
+		std::cout << val << std::endl;
+	}
 
 	Scene* menu = new MenuScene();
 	GameScene* game = new GameScene(argv[0]);
