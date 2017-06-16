@@ -31,6 +31,7 @@ int main(int argc, char* argv[])
 	b.push_back(0);
 
 	s->bestCombination(b);
+	delete s;
 
 	Scene* menu = new MenuScene();
 	GameScene* game = new GameScene(argv[0]);

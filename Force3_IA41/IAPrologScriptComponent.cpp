@@ -4,10 +4,14 @@
 IAPrologScriptComponent::IAPrologScriptComponent(sf::String _name, char* arg0) : Component(_name)
 {
 	plHelper = new PrologHelper(arg0);
-	plHelper->consultFile("force3.pl");
+	bool r = plHelper->consultFile("force3.pl");
+	if (r) std::cout << "OK" << std::endl;
+	else std::cout << "FAIL" << std::endl;
 
 	/* Prédicat pour trouver la meilleur solution */
-	plHelper->loadPredicat("best_combination", 3);
+	r = plHelper->loadPredicat("best_combination", 3);
+	if (r) std::cout << "OK" << std::endl;
+	else std::cout << "FAIL" << std::endl;
 }
 
 IAPrologScriptComponent::~IAPrologScriptComponent()
@@ -45,19 +49,14 @@ std::vector<int> IAPrologScriptComponent::bestCombination(std::vector<int> _boar
 
 	plHelper->callPredicat("best_combination", b);
 
-	term_t head = PL_new_term_ref();
-	term_t mm = PL_copy_term_ref(m);
-	int n = 0;
-	while (PL_get_list(mm, head, mm))
+	term_t tail = PL_new_term_ref();
+	while (PL_get_list(m, m, tail))
 	{
 		int val;
-		PL_get_integer(head, &val);
+		PL_get_integer(tail, &val);
 
 		std::cout << val << std::endl;
-		n++;
 	}
-
-	std::cout << n << std::endl;
 
 	return std::vector<int>();
 }
