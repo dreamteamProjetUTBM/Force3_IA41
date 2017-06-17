@@ -22,7 +22,7 @@ public:
 	void update(Display* _disp, sf::Event& _event) override;
 	void draw(Display* _disp) override;
 
-	std::vector<int> bestCombination(std::vector<int> _board);
+	std::vector<int> bestCombination(std::vector<int> _board, std::vector<int> _prev);
 	bool win(std::vector<int> _board, int _player);
 
 };

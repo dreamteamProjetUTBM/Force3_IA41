@@ -30,6 +30,7 @@ private:
 	std::map<int, std::vector<int>> taquin_simple;
 	std::map<int, std::vector<int>> taquin_double;
 
+	std::vector<int> previous = { 0,0,0 };
 
 	std::vector<int> getCasesIndex_AdjacentAndDiagonal(int index);
 	std::vector<int> getCasesIndex_Adjacent(int index);

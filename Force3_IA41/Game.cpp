@@ -1,7 +1,9 @@
-#include "Game.h"
+﻿#include "Game.h"
 #include <iostream>
+#include <chrono>
+#include <thread>
 
-Game Game::m_instance = Game();	
+Game Game::m_instance = Game();
 
 Game & Game::Instance()
 {
@@ -10,7 +12,7 @@ Game & Game::Instance()
 
 Game::Game()
 {
-	
+
 
 	setScoreJ1(0);
 	setScoreJ2(0);
@@ -153,11 +155,11 @@ int Game::getMiddleIndexOfTaquin2(int _old_position, int _new_position)
 bool Game::joue(int coup)
 {
 	bool est_taquin_simple = false, est_taquin_double = false;
-	
+
 
 	std::vector<Case*> cases = getGameScene()->getBoard()->GetCases();
 	std::vector<int> taquin_old_position = taquin_simple.at(old_position);
-	
+
 	if (coup == 1) {
 		if (old_position == new_posistion)
 		{
@@ -202,44 +204,42 @@ bool Game::joue(int coup)
 	}
 
 	std::vector<int> coupPlayer;
-	if (coup == 0) 
+	if (coup == 0)
 		coupPlayer = { -1,old_position, coup };
-	else 
+	else
 		coupPlayer = { old_position, new_posistion, coup };
 
+
+	if (previous[2] != 0 && coupPlayer[2] == previous[2] && coupPlayer[0] == previous[1] && coupPlayer[1] == previous[0]) {
+		std::cout << "Coup impossible : c'est l'inverse du coup pr�c�dent ;-)" << std::endl;
+		return false;
+	}
 
 	if (!ppsc->isPossible(gameScene->getBoard()->getPrologBoard(), coupPlayer)) {
 		std::cout << "Coup impossible" << std::endl;
 		return false;
 	}
 
+	previous = { coupPlayer[0], coupPlayer[1], coupPlayer[2] };
 
 	if (coup == 0) //ajout pion
 	{
 		Case* target = getGameScene()->getBoard()->GetCases()[old_position];
 		if (target->GetPawn()->GetPlayerID() == 0) //&& NbPions du joueur < 3) //On peut ajouter le pion
 		{
-			//Joueur 1 sera toujours l'humain
 			target->GetPawn()->SetPawn(1, target->getPosition().x, target->getPosition().y);
 		}
 	}
 	else if (coup == 1) //deplacement case ou pion
 	{
 		std::cout << "Deplacement Pion" << std::endl;
-		//deplacement du pion
-		std::vector<int> posibilities = getCasesIndex_AdjacentAndDiagonal(old_position);
-		bool is_correct = false;
-		for each (int posibility in posibilities)
-		{
-			if (posibility == new_posistion)
-				is_correct = true;
-		}
-		if (is_correct)
-			getGameScene()->getBoard()->switchCases(old_position, new_posistion);
-
+		getGameScene()->getBoard()->switchCases(old_position, new_posistion);
 	}
 	else {
 		std::cout << "Deplacement Case" << std::endl;
+		std::cout << "Simple " << est_taquin_simple << std::endl;
+		std::cout << "Double " << est_taquin_double << std::endl;
+
 		if (est_taquin_simple) {
 			getGameScene()->getBoard()->switchCases(old_position, new_posistion);
 		}
@@ -249,14 +249,12 @@ bool Game::joue(int coup)
 			getGameScene()->getBoard()->switchCases(new_posistion, middle);
 		}
 	}
-	
 
 	bool victory = iapsc->win(gameScene->getBoard()->getPrologBoard(), 1);
 	if (victory)
 		std::cout << "Joueur 1 gagne" << std::endl;
 	else
 		whosTurnIs = 2;
-
 
 	launchGame();
 	return false;
@@ -265,6 +263,11 @@ bool Game::joue(int coup)
 bool Game::joueIA(int _old_position, int _new_position, int _coup)
 {
 	Case* first_case;
+
+	std::cout << "IA : " << _coup << std::endl;
+	std::cout << "Old : " << _old_position << std::endl;
+	std::cout << "New : " << _new_position << std::endl;
+
 
 	switch (_coup) {
 	case 0: //ajout pion
@@ -292,19 +295,21 @@ void Game::launchGame() {
 
 	//while (!victory) {
 
-		//Player 1 joue
-		if (whosTurnIs == 2) {
+	//Player 1 joue
+	if (whosTurnIs == 2) {
 
-			std::vector<int> bo = gameScene->getBoard()->getPrologBoard();
-			std::vector<int> coupIA = iapsc->bestCombination(bo);
-			joueIA(coupIA[0], coupIA[1], coupIA[2]);
+		std::vector<int> bo = gameScene->getBoard()->getPrologBoard();
+		std::vector<int> coupIA = iapsc->bestCombination(bo, previous);
+		joueIA(coupIA[0], coupIA[1], coupIA[2]);
 
-			bool victory = iapsc->win(gameScene->getBoard()->getPrologBoard(), 2);
-			if (victory)
-				std::cout << "Joueur 2 gagne" << std::endl;
-			else 
-				whosTurnIs = 1;
-		}
+		previous = { coupIA[0], coupIA[1], coupIA[2] };
+
+		bool victory = iapsc->win(gameScene->getBoard()->getPrologBoard(), 2);
+		if (victory)
+			std::cout << "Joueur 2 gagne" << std::endl;
+		else
+			whosTurnIs = 1;
+	}
 
 
 	//}

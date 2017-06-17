@@ -9,7 +9,7 @@ IAPrologScriptComponent::IAPrologScriptComponent(sf::String _name, char* arg0) :
 	else std::cout << "FAIL" << std::endl;
 
 	/* Prédicat pour trouver la meilleur solution */
-	r = plHelper->loadPredicat("best_combination", 3);
+	r = plHelper->loadPredicat("best_combination", 4);
 	if (r) std::cout << "OK" << std::endl;
 	else std::cout << "FAIL" << std::endl;
 
@@ -35,13 +35,15 @@ void IAPrologScriptComponent::draw(Display* _disp)
 {
 }
 
-std::vector<int> IAPrologScriptComponent::bestCombination(std::vector<int> _board)
+std::vector<int> IAPrologScriptComponent::bestCombination(std::vector<int> _board, std::vector<int> _prev)
 {
-	term_t b = PL_new_term_refs(3);
+	term_t b = PL_new_term_refs(4);
 	term_t p = b + 1;
-	term_t m = b + 2;
+	term_t o = b + 2;
+	term_t m = b + 3;
 
 	PrologHelper::setList(b, _board);
+	PrologHelper::setList(o, _prev);
 
 	PL_put_integer(p, 2);
 
