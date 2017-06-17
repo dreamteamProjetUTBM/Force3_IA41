@@ -40,3 +40,9 @@ int main(int argc, char* argv[])
 
 	delete disp;
 }
+
+/*
+ * TODO : Ajouter titre dans le menu
+ * TODO : Ajouter affichage du gagnant dans la scène de jeu
+ * TODO : Ajouter un bouton recommencer une partie
+ */
