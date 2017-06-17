@@ -33,14 +33,32 @@ taquin(6,P):- P=3; P=7.
 taquin(7,P):- P=4; P=6; P=8.
 taquin(8,P):- P=5; P=7.
 
-taquin2(0,P1,P2):- P1=1, P2=2; P1=3, P2=6; P1=2, P2=1; P1=6, P2=3.
-taquin2(1,P1,P2):- P1=4, P2=7; P1=7; P2=4.
-taquin2(2,P1,P2):- P1=0, P2=1; P1=5, P2=8; P1=1, P2=0; P1=8, P2=5.
-taquin2(3,P1,P2):- P1=4, P2=5; P1=5, P2=4.
-taquin2(5,P1,P2):- P1=3, P2=4, P1=4, P2=3.
-taquin2(6,P1,P2):- P1=0, P2=3; P1=7, P2=8; P1=3, P2=0; P1=8, P2=7.
-taquin2(7,P1,P2):- P1=1, P2=4; P1=4, P2=1.
-taquin2(8,P1,P2):- P1=2, P2=5; P1=6, P2=7; P1=5, P2=2; P1=7, P2=6.
+
+taquin2(0,P1,P2):- P1=1, P2=2.
+taquin2(0,P1,P2):- P1=3, P2=6.
+taquin2(0,P1,P2):- P1=2, P2=1.
+taquin2(0,P1,P2):- P1=6, P2=3.
+taquin2(1,P1,P2):- P1=4, P2=7.
+taquin2(1,P1,P2):- P1=7, P2=4.
+taquin2(2,P1,P2):- P1=0, P2=1.
+taquin2(2,P1,P2):- P1=1, P2=0.
+taquin2(2,P1,P2):- P1=5, P2=8.
+taquin2(2,P1,P2):- P1=8, P2=5.
+taquin2(3,P1,P2):- P1=4, P2=5.
+taquin2(3,P1,P2):- P1=5, P2=4.
+taquin2(5,P1,P2):- P1=3, P2=4.
+taquin2(5,P1,P2):- P1=4, P2=3.
+taquin2(6,P1,P2):- P1=0, P2=3.
+taquin2(6,P1,P2):- P1=3, P2=0.
+taquin2(6,P1,P2):- P1=7, P2=8.
+taquin2(6,P1,P2):- P1=8, P2=7.
+taquin2(7,P1,P2):- P1=1, P2=4.
+taquin2(7,P1,P2):- P1=4, P2=1.
+taquin2(8,P1,P2):- P1=2, P2=5.
+taquin2(8,P1,P2):- P1=5, P2=2.
+taquin2(8,P1,P2):- P1=6, P2=7.
+taquin2(8,P1,P2):- P1=7, P2=6.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -119,11 +137,12 @@ setval([X|R],[X|P],J,C) :- C > 0, Y is C-1,setval(R,P,J,Y).
 % Trouve le meilleur coup
 %   P : plateau (exemple : [1,1,0,0,-1,0,0,0,0])
 %   J : joueur (1 ou 2)
+%   O : Coup precedent
 %   M : [A,B,C]     
 %       A : position de départ
 %       B : position d arrivé   
 %       C : coup joué (0 = pose d un pion, 1 = deplacement pion, 2 = deplacement d une case, 3 = deplacement de deux cases) 
-best_combination(P,J,M) :- findall(C,action_ia(P,J,C),R), is_the_best(P,R,J,-1001,_,_,M).
+best_combination(P,J,O,M) :- findall(C,action_ia(P,J,O,C),R), is_the_best(P,R,J,-1001,_,_,M).
 
 
 % Recherche la meilleure combinaison en comparant les scores obtenus
@@ -138,8 +157,8 @@ is_the_best(P,[_|L],J,ScoreP,CombiP,ScoreS,CombiS):-
 eval(P,J,C,N) :- play(P,J,C,R), nb_ouverture(R,J,N).
 
 
-action_ia(P,J,[A,B,0]):- action(P,J,[A,B,0]).
-action_ia(P,J,C):- nb_pions(P,J,N), N=3,action(P,J,C).
+action_ia(P,J,_,[A,B,0]):- action(P,J,[A,B,0]).
+action_ia(P,J,[A,B,C],[D,E,F]):- nb_pions(P,J,N), N=3,action(P,J,[D,E,F]), not([A,B,C]==[D,E,F]),not([A,B,C]==[E,D,F]).
 
 
 % nb_ouverture : Pour un plateau et un joueur donné, retourne le
@@ -153,4 +172,4 @@ nb_ouverture(P,1,-1000) :- win(P,2),!.
 nb_ouverture(P,2,-1000) :- win(P,1),!.
 
 % Initialisation
-nb_ouverture(P,J,N) :- findall(_,action_ia(P,J,_), R), length(R,N).
+nb_ouverture(P,J,N) :- findall(_,action_ia(P,J,_,_), R), length(R,N).
