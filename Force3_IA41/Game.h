@@ -1,7 +1,8 @@
 #pragma once
 #include "GameScene.h"
 #include "Board.h"
-
+#include "PlayerPrologScriptComponent.h"
+#include "IAPrologScriptComponent.h"
 /*
 	Classe Game
 
@@ -13,12 +14,15 @@ class Game
 private:
 	static Game m_instance;
 
+	
+
 	int _score_J1;
 	int _score_J2;
 	bool coup_en_cours;
 
-	int _whosTurnIs;
-	GameScene* _gameScene;
+	
+	int whosTurnIs;
+	GameScene* gameScene;
 
 	int old_position;
 	int new_posistion;
@@ -32,6 +36,9 @@ private:
 	int getMiddleIndexOfTaquin2(int _old_position, int _new_position);
 
 public:
+	PlayerPrologScriptComponent* ppsc;
+	IAPrologScriptComponent* iapsc;
+
 	static Game& Instance();
 
 	Game();
@@ -49,6 +56,8 @@ public:
 	bool getCoupEnCours();
 	void setCoupEnCours(bool value);
 
+	int getJ1NumberPawn();
+
 	void setOldPosition(Case* value);
 	void setNewPosition(Case* value);
 	void setOldPositionByPawn(Pawn* value);
@@ -59,6 +68,7 @@ public:
 	bool joue(int coup);
 	bool joueIA(int _old_position, int _new_position, int _coup);
 
+	void launchGame();
 
 
 };

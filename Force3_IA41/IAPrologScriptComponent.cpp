@@ -12,6 +12,10 @@ IAPrologScriptComponent::IAPrologScriptComponent(sf::String _name, char* arg0) :
 	r = plHelper->loadPredicat("best_combination", 3);
 	if (r) std::cout << "OK" << std::endl;
 	else std::cout << "FAIL" << std::endl;
+
+	r = plHelper->loadPredicat("win", 2);
+	if (r) std::cout << "OK" << std::endl;
+	else std::cout << "FAIL" << std::endl;
 }
 
 IAPrologScriptComponent::~IAPrologScriptComponent()
@@ -44,4 +48,16 @@ std::vector<int> IAPrologScriptComponent::bestCombination(std::vector<int> _boar
 	plHelper->callPredicat("best_combination", b);
 
 	return PrologHelper::getList(m);
+}
+
+bool IAPrologScriptComponent::win(std::vector<int> _board,int _player)
+{
+	term_t b = PL_new_term_refs(2);
+	term_t p = b + 1;
+
+	PrologHelper::setList(b, _board);
+
+	PL_put_integer(p, _player);
+
+	return plHelper->callPredicat("win", b);
 }

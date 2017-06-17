@@ -1,10 +1,16 @@
 ﻿#include "PlayerPrologScriptComponent.h"
+#include <iostream>
 
 PlayerPrologScriptComponent::PlayerPrologScriptComponent(sf::String _name, char* arg0) : Component(_name)
 {
 	plHelper = new PrologHelper(arg0);
-	
-	plHelper->loadPredicat("is_possible", 3);
+	bool r = plHelper->consultFile("force3.pl");
+	if (r) std::cout << "OK" << std::endl;
+	else std::cout << "FAIL" << std::endl;
+
+	r = plHelper->loadPredicat("is_possible", 3);
+	if (r) std::cout << "OK" << std::endl;
+	else std::cout << "FAIL" << std::endl;
 }
 
 PlayerPrologScriptComponent::~PlayerPrologScriptComponent()
@@ -32,6 +38,7 @@ bool PlayerPrologScriptComponent::isPossible(std::vector<int> _board, std::vecto
 
 	PrologHelper::setList(p, _board);
 	PL_put_integer(j, 1);
+	PrologHelper::setList(m, _move);
 
 	return plHelper->callPredicat("is_possible", p);
 }

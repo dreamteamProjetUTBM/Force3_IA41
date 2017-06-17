@@ -71,7 +71,7 @@ void Case::enableClick()
 		{
 			std::cout << "Second coup" << std::endl;
 			Game::Instance().setNewPosition(this);
-			Game::Instance().joue(3);
+			Game::Instance().joue(1);
 			Game::Instance().setCoupEnCours(false);
 		}
 		enableClick();
@@ -85,7 +85,7 @@ void Case::enableClick()
 			return;
 		}
 		Game::Instance().setOldPosition(this);
-		Game::Instance().joue(1);
+		Game::Instance().joue(0);
 
 	});
 

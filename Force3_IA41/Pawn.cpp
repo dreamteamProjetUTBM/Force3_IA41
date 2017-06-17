@@ -35,7 +35,7 @@ void Pawn::SetPawn(int playerID, int x, int y)
 	if (playerID == 1)
 		_image = "ressources/pawn_j1.png";
 	else if (playerID == 2)
-		_image = "ressouces/pawn_j2.png";
+		_image = "ressources/pawn_j2.png";
 
 	spriteComp = new SpriteComponent(COMP_SPRITE_INACTIVE, _image);
 	spriteComp->setPosition(x, y);

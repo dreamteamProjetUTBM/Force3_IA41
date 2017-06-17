@@ -10,37 +10,22 @@
 
 #include "IAPrologScriptComponent.h"
 
-int main(int argc, char* argv[]) 
+int main(int argc, char* argv[])
 {
 	/* Permet de mettre en place l'environnement !!! Obligatoire sinon ça ne
 	 fonctionne pas du tout !!!*/
 	_putenv("SWI_HOME_DIR=C:\\Program Files (x86)\\swipl\\");
 
-	IAPrologScriptComponent* s = new IAPrologScriptComponent("test", argv[0]);
-	std::vector<int> b;
-	b.push_back(1);
-	b.push_back(0);
-	b.push_back(1);
+	IAPrologScriptComponent* ia = new IAPrologScriptComponent("PrologIA", argv[0]);
+	PlayerPrologScriptComponent* player = new PlayerPrologScriptComponent("PrologPlayer", argv[0]);
 
-	b.push_back(0);
-	b.push_back(-1);
-	b.push_back(0);
-
-	b.push_back(2);
-	b.push_back(0);
-	b.push_back(2);
-
-	auto v = s->bestCombination(b);
-	delete s;
-
-	for(int val : v)
-	{
-		std::cout << val << std::endl;
-	}
 
 	Scene* menu = new MenuScene();
 	GameScene* game = new GameScene(argv[0]);
 	Game::Instance().setGameScene(game);
+
+	Game::Instance().iapsc = ia;
+	Game::Instance().ppsc = player;
 
 	Display* disp = new Display(854, 480, "Force 3");
 	disp->addScene(menu);
@@ -48,6 +33,10 @@ int main(int argc, char* argv[])
 
 	disp->switchScene(SCENE_MENU);
 	disp->start(true);
+
+
+	//delete ia;
+	//delete player;
 
 	delete disp;
 }

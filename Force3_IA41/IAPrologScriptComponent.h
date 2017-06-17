@@ -23,5 +23,7 @@ public:
 	void draw(Display* _disp) override;
 
 	std::vector<int> bestCombination(std::vector<int> _board);
+	bool win(std::vector<int> _board, int _player);
+
 };
 
